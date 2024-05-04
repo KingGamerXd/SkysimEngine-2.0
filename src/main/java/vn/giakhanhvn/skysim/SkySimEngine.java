@@ -36,18 +36,14 @@ package vn.giakhanhvn.skysim;
 
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
-import com.google.common.io.Files;
-import com.onarandombox.MultiverseCore.MultiverseCore;
 import de.slikey.effectlib.EffectManager;
-import java.io.File;
-import java.io.IOException;
+
 import java.lang.reflect.Field;
 import java.util.*;
 
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.command.CommandMap;
@@ -55,13 +51,11 @@ import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
+import vn.giakhanhvn.skysim.api.world.BlankWorldCreator;
 import vn.giakhanhvn.skysim.auction.AuctionBid;
 import vn.giakhanhvn.skysim.auction.AuctionEscrow;
 import vn.giakhanhvn.skysim.auction.AuctionItem;
@@ -127,7 +121,6 @@ import vn.giakhanhvn.skysim.command.ToggleRepeatingCommand;
 import vn.giakhanhvn.skysim.command.ToggleSBACommand;
 import vn.giakhanhvn.skysim.command.TradeCommand;
 import vn.giakhanhvn.skysim.config.Config;
-import vn.giakhanhvn.skysim.enchantment.EnchantmentType;
 import vn.giakhanhvn.skysim.entity.EntityPopulator;
 import vn.giakhanhvn.skysim.entity.EntitySpawner;
 import vn.giakhanhvn.skysim.entity.SEntityType;
@@ -168,7 +161,6 @@ public class SkySimEngine
         extends JavaPlugin
         implements PluginMessageListener,
         BungeeChannel.ForwardConsumer {
-    public static MultiverseCore core = (MultiverseCore)Bukkit.getServer().getPluginManager().getPlugin("Multiverse-Core");
     @Getter
     private static ProtocolManager protocolManager;
     @Getter

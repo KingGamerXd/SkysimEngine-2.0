@@ -8,7 +8,7 @@
  *  org.bukkit.generator.ChunkGenerator$BiomeGrid
  *  org.bukkit.generator.ChunkGenerator$ChunkData
  */
-package vn.giakhanhvn.skysim.util;
+package vn.giakhanhvn.skysim.api.world;
 
 import java.util.Random;
 import org.bukkit.World;
