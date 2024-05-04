@@ -38,10 +38,10 @@ import vn.giakhanhvn.skysim.SkySimEngine;
 import vn.giakhanhvn.skysim.gui.GUI;
 import vn.giakhanhvn.skysim.gui.GUIClickableItem;
 import vn.giakhanhvn.skysim.gui.GUIOpenEvent;
-import vn.giakhanhvn.skysim.item.Rarity;
-import vn.giakhanhvn.skysim.item.Reforgable;
-import vn.giakhanhvn.skysim.item.SItem;
-import vn.giakhanhvn.skysim.reforge.ReforgeType;
+import vn.giakhanhvn.skysim.features.item.Rarity;
+import vn.giakhanhvn.skysim.features.item.Reforgable;
+import vn.giakhanhvn.skysim.features.item.SItem;
+import vn.giakhanhvn.skysim.features.reforge.ReforgeType;
 import vn.giakhanhvn.skysim.user.User;
 import vn.giakhanhvn.skysim.util.SUtil;
 

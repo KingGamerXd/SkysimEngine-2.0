@@ -18,8 +18,8 @@ import vn.giakhanhvn.skysim.command.CommandFailException;
 import vn.giakhanhvn.skysim.command.CommandParameters;
 import vn.giakhanhvn.skysim.command.CommandSource;
 import vn.giakhanhvn.skysim.command.SCommand;
-import vn.giakhanhvn.skysim.item.Rarity;
-import vn.giakhanhvn.skysim.item.SItem;
+import vn.giakhanhvn.skysim.features.item.Rarity;
+import vn.giakhanhvn.skysim.features.item.SItem;
 
 @CommandParameters(description="Modifies the rarity of an item.", aliases="rar", permission="spt.item")
 public class SpecRarityCommand

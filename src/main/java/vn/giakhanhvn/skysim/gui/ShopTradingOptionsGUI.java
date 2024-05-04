@@ -24,7 +24,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import vn.giakhanhvn.skysim.gui.GUI;
 import vn.giakhanhvn.skysim.gui.GUIClickableItem;
 import vn.giakhanhvn.skysim.gui.GUIOpenEvent;
-import vn.giakhanhvn.skysim.item.SItem;
+import vn.giakhanhvn.skysim.features.item.SItem;
 import vn.giakhanhvn.skysim.user.User;
 import vn.giakhanhvn.skysim.util.SUtil;
 

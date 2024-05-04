@@ -29,10 +29,10 @@ import vn.giakhanhvn.skysim.gui.BlockBasedGUI;
 import vn.giakhanhvn.skysim.gui.GUI;
 import vn.giakhanhvn.skysim.gui.GUIClickableItem;
 import vn.giakhanhvn.skysim.gui.GUIOpenEvent;
-import vn.giakhanhvn.skysim.item.MaterialQuantifiable;
-import vn.giakhanhvn.skysim.item.Recipe;
-import vn.giakhanhvn.skysim.item.SItem;
-import vn.giakhanhvn.skysim.item.SMaterial;
+import vn.giakhanhvn.skysim.features.item.MaterialQuantifiable;
+import vn.giakhanhvn.skysim.features.item.Recipe;
+import vn.giakhanhvn.skysim.features.item.SItem;
+import vn.giakhanhvn.skysim.features.item.SMaterial;
 import vn.giakhanhvn.skysim.util.SUtil;
 
 public class CraftingTableGUI

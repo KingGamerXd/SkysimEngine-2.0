@@ -18,9 +18,9 @@ import vn.giakhanhvn.skysim.command.CommandFailException;
 import vn.giakhanhvn.skysim.command.CommandParameters;
 import vn.giakhanhvn.skysim.command.CommandSource;
 import vn.giakhanhvn.skysim.command.SCommand;
-import vn.giakhanhvn.skysim.item.SItem;
-import vn.giakhanhvn.skysim.reforge.Reforge;
-import vn.giakhanhvn.skysim.reforge.ReforgeType;
+import vn.giakhanhvn.skysim.features.item.SItem;
+import vn.giakhanhvn.skysim.features.reforge.Reforge;
+import vn.giakhanhvn.skysim.features.reforge.ReforgeType;
 
 @CommandParameters(description="Reforge an item from Spec.", aliases="sref", permission="spt.item")
 public class SpecReforgeCommand

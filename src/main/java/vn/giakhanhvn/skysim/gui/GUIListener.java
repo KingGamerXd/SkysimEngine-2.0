@@ -47,7 +47,7 @@ import vn.giakhanhvn.skysim.gui.GUIType;
 import vn.giakhanhvn.skysim.gui.QuiverGUI;
 import vn.giakhanhvn.skysim.gui.ReforgeAnvilGUI;
 import vn.giakhanhvn.skysim.gui.TrashGUI;
-import vn.giakhanhvn.skysim.item.SItem;
+import vn.giakhanhvn.skysim.features.item.SItem;
 import vn.giakhanhvn.skysim.listener.PListener;
 import vn.giakhanhvn.skysim.user.User;
 import vn.giakhanhvn.skysim.util.SignInput;

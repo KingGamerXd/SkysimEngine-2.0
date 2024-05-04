@@ -18,8 +18,8 @@ import vn.giakhanhvn.skysim.command.CommandFailException;
 import vn.giakhanhvn.skysim.command.CommandParameters;
 import vn.giakhanhvn.skysim.command.CommandSource;
 import vn.giakhanhvn.skysim.command.SCommand;
-import vn.giakhanhvn.skysim.item.SItem;
-import vn.giakhanhvn.skysim.item.SMaterial;
+import vn.giakhanhvn.skysim.features.item.SItem;
+import vn.giakhanhvn.skysim.features.item.SMaterial;
 
 @CommandParameters(description="Gives an item from Spec.", aliases="sitem,specitem", permission="spt.item")
 public class ItemCommand

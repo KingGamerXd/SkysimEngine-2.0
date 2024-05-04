@@ -26,13 +26,9 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import vn.giakhanhvn.skysim.SkySimEngine;
-import vn.giakhanhvn.skysim.gui.GUI;
-import vn.giakhanhvn.skysim.gui.GUIClickableItem;
-import vn.giakhanhvn.skysim.gui.GUIItem;
-import vn.giakhanhvn.skysim.gui.GUIOpenEvent;
-import vn.giakhanhvn.skysim.item.SItem;
-import vn.giakhanhvn.skysim.item.pet.Pet;
-import vn.giakhanhvn.skysim.placeholding;
+import vn.giakhanhvn.skysim.features.item.SItem;
+import vn.giakhanhvn.skysim.features.item.pet.Pet;
+import vn.giakhanhvn.skysim.api.placeholder.SkyBlockPlaceHolder;
 import vn.giakhanhvn.skysim.user.User;
 import vn.giakhanhvn.skysim.util.SUtil;
 import vn.giakhanhvn.skysim.util.Sputnik;
@@ -64,7 +60,7 @@ extends GUI {
 
             @Override
             public ItemStack getItem() {
-                placeholding pl = new placeholding();
+                SkyBlockPlaceHolder pl = new SkyBlockPlaceHolder();
                 ItemStack itemstack = SUtil.getSkullStack(ProfileViewerGUI.this.p.getDisplayName(), ProfileViewerGUI.this.p.getName(), 1, Sputnik.trans("  &c\u2764 Health &f" + SUtil.commaify(Math.round(ProfileViewerGUI.this.p.getHealth())) + " HP"), Sputnik.trans("  &a\u2748 Defense&f " + pl.onRequest((OfflinePlayer)ProfileViewerGUI.this.p, "defense")), Sputnik.trans("  &c\u2741 Strength&f " + pl.onRequest((OfflinePlayer)ProfileViewerGUI.this.p, "strength")), Sputnik.trans("  &f\u2726 Speed " + pl.onRequest((OfflinePlayer)ProfileViewerGUI.this.p, "speed")), Sputnik.trans("  &9\u2623 Crit Chance&f " + pl.onRequest((OfflinePlayer)ProfileViewerGUI.this.p, "critchance") + "%"), Sputnik.trans("  &9\u2620 Crit Damage&f " + pl.onRequest((OfflinePlayer)ProfileViewerGUI.this.p, "critdamage") + "%"), Sputnik.trans("  &b\u270e Intelligence&f " + pl.onRequest((OfflinePlayer)ProfileViewerGUI.this.p, "int")), Sputnik.trans("  &e\u2694 Bonus Attack Speed&f " + pl.onRequest((OfflinePlayer)ProfileViewerGUI.this.p, "atkSpeed") + "%"), Sputnik.trans("  &c\u2afd Ferocity&f " + pl.onRequest((OfflinePlayer)ProfileViewerGUI.this.p, "ferocity")), Sputnik.trans("  &c\u0e51 Ability Damage&f " + pl.onRequest((OfflinePlayer)ProfileViewerGUI.this.p, "abilityDamage") + "%"), " ", Sputnik.trans("&8Skill Average: &6N/A &7(non-cosmetic)"), " ");
                 return itemstack;
             }

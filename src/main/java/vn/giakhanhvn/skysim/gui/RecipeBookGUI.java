@@ -18,10 +18,10 @@ import vn.giakhanhvn.skysim.gui.GUI;
 import vn.giakhanhvn.skysim.gui.GUIClickableItem;
 import vn.giakhanhvn.skysim.gui.GUIOpenEvent;
 import vn.giakhanhvn.skysim.gui.GUIType;
-import vn.giakhanhvn.skysim.item.MaterialQuantifiable;
-import vn.giakhanhvn.skysim.item.SItem;
-import vn.giakhanhvn.skysim.item.SMaterial;
-import vn.giakhanhvn.skysim.item.ShapedRecipe;
+import vn.giakhanhvn.skysim.features.item.MaterialQuantifiable;
+import vn.giakhanhvn.skysim.features.item.SItem;
+import vn.giakhanhvn.skysim.features.item.SMaterial;
+import vn.giakhanhvn.skysim.features.item.ShapedRecipe;
 import vn.giakhanhvn.skysim.util.SUtil;
 import vn.giakhanhvn.skysim.util.Sputnik;
 

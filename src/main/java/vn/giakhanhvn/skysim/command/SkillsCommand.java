@@ -9,12 +9,7 @@ package vn.giakhanhvn.skysim.command;
 
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.ConsoleCommandSender;
-import vn.giakhanhvn.skysim.command.CommandArgumentException;
-import vn.giakhanhvn.skysim.command.CommandFailException;
-import vn.giakhanhvn.skysim.command.CommandParameters;
-import vn.giakhanhvn.skysim.command.CommandSource;
-import vn.giakhanhvn.skysim.command.SCommand;
-import vn.giakhanhvn.skysim.skill.Skill;
+import vn.giakhanhvn.skysim.features.skill.Skill;
 
 @CommandParameters(description="Shows your skills.", aliases="skill", permission="spt.skills")
 public class SkillsCommand

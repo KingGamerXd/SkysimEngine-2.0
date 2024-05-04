@@ -11,14 +11,9 @@ import java.util.HashMap;
 import java.util.Map;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
-import vn.giakhanhvn.skysim.command.CommandArgumentException;
-import vn.giakhanhvn.skysim.command.CommandFailException;
-import vn.giakhanhvn.skysim.command.CommandParameters;
-import vn.giakhanhvn.skysim.command.CommandSource;
-import vn.giakhanhvn.skysim.command.SCommand;
-import vn.giakhanhvn.skysim.region.Region;
-import vn.giakhanhvn.skysim.region.RegionGenerator;
-import vn.giakhanhvn.skysim.region.RegionType;
+import vn.giakhanhvn.skysim.features.region.Region;
+import vn.giakhanhvn.skysim.features.region.RegionGenerator;
+import vn.giakhanhvn.skysim.features.region.RegionType;
 
 @CommandParameters(description="Manage world regions.", usage="/<command> [create <name> <type> | update <name> [type] | delete <name>]", aliases="reg", permission="spt.region")
 public class RegionCommand

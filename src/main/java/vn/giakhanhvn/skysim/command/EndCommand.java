@@ -14,7 +14,7 @@ import org.bukkit.entity.Player;
 import vn.giakhanhvn.skysim.command.CommandParameters;
 import vn.giakhanhvn.skysim.command.CommandSource;
 import vn.giakhanhvn.skysim.command.SCommand;
-import vn.giakhanhvn.skysim.entity.dungeons.boss.sadan.SadanBossManager;
+import vn.giakhanhvn.skysim.features.entity.dungeons.boss.sadan.SadanBossManager;
 import vn.giakhanhvn.skysim.util.Sputnik;
 
 @CommandParameters(description="Spec test command.", aliases="fed")

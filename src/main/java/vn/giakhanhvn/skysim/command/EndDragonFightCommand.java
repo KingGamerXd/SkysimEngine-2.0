@@ -18,7 +18,7 @@ import org.bukkit.entity.Player;
 import vn.giakhanhvn.skysim.command.CommandParameters;
 import vn.giakhanhvn.skysim.command.CommandSource;
 import vn.giakhanhvn.skysim.command.SCommand;
-import vn.giakhanhvn.skysim.entity.StaticDragonManager;
+import vn.giakhanhvn.skysim.features.entity.StaticDragonManager;
 import vn.giakhanhvn.skysim.util.SUtil;
 
 @CommandParameters(description="bruhbu", aliases="edf")

@@ -18,7 +18,7 @@ import org.bukkit.entity.Enderman;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
-import vn.giakhanhvn.skysim.entity.nms.VoidgloomSeraph;
+import vn.giakhanhvn.skysim.features.entity.nms.VoidgloomSeraph;
 import vn.giakhanhvn.skysim.listener.PlayerListener;
 import vn.giakhanhvn.skysim.user.PlayerStatistics;
 import vn.giakhanhvn.skysim.user.PlayerUtils;

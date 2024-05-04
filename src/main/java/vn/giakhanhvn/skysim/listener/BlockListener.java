@@ -16,9 +16,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerInteractEvent;
 import vn.giakhanhvn.skysim.command.RegionCommand;
-import vn.giakhanhvn.skysim.listener.PListener;
-import vn.giakhanhvn.skysim.region.Region;
-import vn.giakhanhvn.skysim.region.RegionGenerator;
+import vn.giakhanhvn.skysim.features.region.Region;
+import vn.giakhanhvn.skysim.features.region.RegionGenerator;
 
 public class BlockListener
 extends PListener {

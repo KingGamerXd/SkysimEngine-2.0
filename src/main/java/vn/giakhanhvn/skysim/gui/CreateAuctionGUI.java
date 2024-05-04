@@ -19,15 +19,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import vn.giakhanhvn.skysim.auction.AuctionEscrow;
-import vn.giakhanhvn.skysim.gui.AuctionConfirmGUI;
-import vn.giakhanhvn.skysim.gui.AuctionDurationGUI;
-import vn.giakhanhvn.skysim.gui.GUI;
-import vn.giakhanhvn.skysim.gui.GUIClickableItem;
-import vn.giakhanhvn.skysim.gui.GUIOpenEvent;
-import vn.giakhanhvn.skysim.gui.GUIQueryItem;
-import vn.giakhanhvn.skysim.gui.GUIType;
-import vn.giakhanhvn.skysim.item.SItem;
+import vn.giakhanhvn.skysim.features.auction.AuctionEscrow;
+import vn.giakhanhvn.skysim.features.item.SItem;
 import vn.giakhanhvn.skysim.user.User;
 import vn.giakhanhvn.skysim.util.SUtil;
 

@@ -20,7 +20,7 @@ import vn.giakhanhvn.skysim.command.CommandSource;
 import vn.giakhanhvn.skysim.command.SCommand;
 import vn.giakhanhvn.skysim.gui.GUI;
 import vn.giakhanhvn.skysim.gui.GUIType;
-import vn.giakhanhvn.skysim.item.oddities.MaddoxBatphone;
+import vn.giakhanhvn.skysim.features.item.oddities.MaddoxBatphone;
 import vn.giakhanhvn.skysim.util.SUtil;
 
 @CommandParameters(description="Hidden command for Maddox Batphone.")

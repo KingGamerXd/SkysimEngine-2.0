@@ -9,8 +9,8 @@ package vn.giakhanhvn.skysim.user;
 import java.util.HashMap;
 import java.util.Map;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
-import vn.giakhanhvn.skysim.item.ItemCategory;
-import vn.giakhanhvn.skysim.item.Rarity;
+import vn.giakhanhvn.skysim.features.item.ItemCategory;
+import vn.giakhanhvn.skysim.features.item.Rarity;
 
 public class AuctionSettings
 implements Cloneable,

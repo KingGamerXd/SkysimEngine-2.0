@@ -55,10 +55,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
+import vn.giakhanhvn.skysim.api.placeholder.SkyBlockPlaceHolder;
 import vn.giakhanhvn.skysim.api.world.BlankWorldCreator;
-import vn.giakhanhvn.skysim.auction.AuctionBid;
-import vn.giakhanhvn.skysim.auction.AuctionEscrow;
-import vn.giakhanhvn.skysim.auction.AuctionItem;
+import vn.giakhanhvn.skysim.features.auction.AuctionBid;
+import vn.giakhanhvn.skysim.features.auction.AuctionEscrow;
+import vn.giakhanhvn.skysim.features.auction.AuctionItem;
 import vn.giakhanhvn.skysim.command.APICommand;
 import vn.giakhanhvn.skysim.command.AbsorptionCommand;
 import vn.giakhanhvn.skysim.command.AccessTimedCommand;
@@ -121,15 +122,15 @@ import vn.giakhanhvn.skysim.command.ToggleRepeatingCommand;
 import vn.giakhanhvn.skysim.command.ToggleSBACommand;
 import vn.giakhanhvn.skysim.command.TradeCommand;
 import vn.giakhanhvn.skysim.config.Config;
-import vn.giakhanhvn.skysim.entity.EntityPopulator;
-import vn.giakhanhvn.skysim.entity.EntitySpawner;
-import vn.giakhanhvn.skysim.entity.SEntityType;
-import vn.giakhanhvn.skysim.entity.StaticDragonManager;
-import vn.giakhanhvn.skysim.entity.nms.VoidgloomSeraph;
+import vn.giakhanhvn.skysim.features.entity.EntityPopulator;
+import vn.giakhanhvn.skysim.features.entity.EntitySpawner;
+import vn.giakhanhvn.skysim.features.entity.SEntityType;
+import vn.giakhanhvn.skysim.features.entity.StaticDragonManager;
+import vn.giakhanhvn.skysim.features.entity.nms.VoidgloomSeraph;
 import vn.giakhanhvn.skysim.gui.GUIListener;
-import vn.giakhanhvn.skysim.item.*;
-import vn.giakhanhvn.skysim.item.armor.VoidlingsWardenHelmet;
-import vn.giakhanhvn.skysim.item.pet.Pet;
+import vn.giakhanhvn.skysim.features.item.*;
+import vn.giakhanhvn.skysim.features.item.armor.VoidlingsWardenHelmet;
+import vn.giakhanhvn.skysim.features.item.pet.Pet;
 import vn.giakhanhvn.skysim.listener.BlockListener;
 import vn.giakhanhvn.skysim.listener.PacketListener;
 import vn.giakhanhvn.skysim.listener.ServerPingListener;
@@ -147,12 +148,13 @@ import vn.giakhanhvn.skysim.nms.packetevents.PluginMessageReceived;
 import vn.giakhanhvn.skysim.nms.packetevents.SkySimServerPingEvent;
 import vn.giakhanhvn.skysim.nms.packetevents.WrappedPluginMessage;
 import vn.giakhanhvn.skysim.nms.pingrep.PingAPI;
-import vn.giakhanhvn.skysim.region.Region;
-import vn.giakhanhvn.skysim.region.RegionType;
-import vn.giakhanhvn.skysim.slayer.SlayerQuest;
-import vn.giakhanhvn.skysim.sql.SQLDatabase;
-import vn.giakhanhvn.skysim.sql.SQLRegionData;
-import vn.giakhanhvn.skysim.sql.SQLWorldData;
+import vn.giakhanhvn.skysim.features.region.Region;
+import vn.giakhanhvn.skysim.features.region.RegionType;
+import vn.giakhanhvn.skysim.features.slayer.SlayerQuest;
+import vn.giakhanhvn.skysim.database.sql.SQLDatabase;
+import vn.giakhanhvn.skysim.database.sql.SQLRegionData;
+import vn.giakhanhvn.skysim.database.sql.SQLWorldData;
+import vn.giakhanhvn.skysim.server.ServerVersion;
 import vn.giakhanhvn.skysim.user.AuctionSettings;
 import vn.giakhanhvn.skysim.user.User;
 import vn.giakhanhvn.skysim.util.*;
@@ -269,7 +271,7 @@ public class SkySimEngine
             }
             SLog.info("Loading items...");
             try {
-                Class.forName("vn.giakhanhvn.skysim.item.SMaterial");
+                Class.forName("vn.giakhanhvn.skysim.features.item.SMaterial");
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
@@ -281,7 +283,7 @@ public class SkySimEngine
             Recipe.initializeRecipes();
             SLog.info("Hooking SkySimEngine to PlaceholderAPI and registering...");
             if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
-                new placeholding().register();
+                new SkyBlockPlaceHolder().register();
                 SLog.info("Hooked to PAPI successfully!");
             } else {
                 SLog.info("ERROR! PlaceholderAPI plugin does not exist, disabing placeholder request!");

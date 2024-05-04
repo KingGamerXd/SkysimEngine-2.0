@@ -20,7 +20,7 @@ import vn.giakhanhvn.skysim.command.CommandFailException;
 import vn.giakhanhvn.skysim.command.CommandParameters;
 import vn.giakhanhvn.skysim.command.CommandSource;
 import vn.giakhanhvn.skysim.command.SCommand;
-import vn.giakhanhvn.skysim.item.SItem;
+import vn.giakhanhvn.skysim.features.item.SItem;
 
 @CommandParameters(description="Sets data for a Spec item.", permission="spt.item")
 public class DataCommand

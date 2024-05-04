@@ -17,7 +17,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 import vn.giakhanhvn.skysim.SkySimEngine;
-import vn.giakhanhvn.skysim.item.armor.ArmorSet;
+import vn.giakhanhvn.skysim.features.item.armor.ArmorSet;
 import vn.giakhanhvn.skysim.user.DoublePlayerStatistic;
 
 public class PlayerStatistics {

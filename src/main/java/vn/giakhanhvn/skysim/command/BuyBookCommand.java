@@ -9,12 +9,9 @@ package vn.giakhanhvn.skysim.command;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-import vn.giakhanhvn.skysim.command.CommandParameters;
-import vn.giakhanhvn.skysim.command.CommandSource;
-import vn.giakhanhvn.skysim.command.SCommand;
-import vn.giakhanhvn.skysim.enchantment.EnchantmentType;
-import vn.giakhanhvn.skysim.item.SItem;
-import vn.giakhanhvn.skysim.item.SMaterial;
+import vn.giakhanhvn.skysim.features.enchantment.EnchantmentType;
+import vn.giakhanhvn.skysim.features.item.SItem;
+import vn.giakhanhvn.skysim.features.item.SMaterial;
 import vn.giakhanhvn.skysim.util.Sputnik;
 
 @CommandParameters(description="", aliases="purc", permission="sse.cc")

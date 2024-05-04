@@ -13,13 +13,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import vn.giakhanhvn.skysim.command.CommandArgumentException;
-import vn.giakhanhvn.skysim.command.CommandFailException;
-import vn.giakhanhvn.skysim.command.CommandParameters;
-import vn.giakhanhvn.skysim.command.CommandSource;
-import vn.giakhanhvn.skysim.command.SCommand;
-import vn.giakhanhvn.skysim.enchantment.EnchantmentType;
-import vn.giakhanhvn.skysim.item.SItem;
+import vn.giakhanhvn.skysim.features.enchantment.EnchantmentType;
+import vn.giakhanhvn.skysim.features.item.SItem;
 
 @CommandParameters(description="Adds an enchantment from Spec to the specified item.", aliases="sench", permission="spt.item")
 public class SpecEnchantmentCommand

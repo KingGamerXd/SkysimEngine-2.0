@@ -18,8 +18,8 @@ import vn.giakhanhvn.skysim.command.CommandFailException;
 import vn.giakhanhvn.skysim.command.CommandParameters;
 import vn.giakhanhvn.skysim.command.CommandSource;
 import vn.giakhanhvn.skysim.command.SCommand;
-import vn.giakhanhvn.skysim.entity.SEntity;
-import vn.giakhanhvn.skysim.entity.SEntityType;
+import vn.giakhanhvn.skysim.features.entity.SEntity;
+import vn.giakhanhvn.skysim.features.entity.SEntityType;
 import vn.giakhanhvn.skysim.util.Sputnik;
 
 @CommandParameters(description="Spawn a mob from Spec.", aliases="scm", permission="spt.spawn")

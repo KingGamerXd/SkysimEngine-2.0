@@ -13,9 +13,9 @@ import java.util.List;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.inventory.InventoryAction;
-import vn.giakhanhvn.skysim.entity.SEntityType;
-import vn.giakhanhvn.skysim.item.SMaterial;
-import vn.giakhanhvn.skysim.region.RegionType;
+import vn.giakhanhvn.skysim.features.entity.SEntityType;
+import vn.giakhanhvn.skysim.features.item.SMaterial;
+import vn.giakhanhvn.skysim.features.region.RegionType;
 
 public final class Groups {
     public static final List<Material> SWORDS = Arrays.asList(Material.WOOD_SWORD, Material.STONE_SWORD, Material.IRON_SWORD, Material.GOLD_SWORD, Material.DIAMOND_SWORD);

@@ -23,8 +23,8 @@ import vn.giakhanhvn.skysim.gui.GUIClickableItem;
 import vn.giakhanhvn.skysim.gui.GUIOpenEvent;
 import vn.giakhanhvn.skysim.gui.GUIType;
 import vn.giakhanhvn.skysim.gui.RecipeBookGUI;
-import vn.giakhanhvn.skysim.item.SItem;
-import vn.giakhanhvn.skysim.item.ShapedRecipe;
+import vn.giakhanhvn.skysim.features.item.SItem;
+import vn.giakhanhvn.skysim.features.item.ShapedRecipe;
 import vn.giakhanhvn.skysim.util.PaginationList;
 import vn.giakhanhvn.skysim.util.SUtil;
 

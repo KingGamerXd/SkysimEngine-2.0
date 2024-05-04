@@ -17,8 +17,8 @@ import vn.giakhanhvn.skysim.command.CommandFailException;
 import vn.giakhanhvn.skysim.command.CommandParameters;
 import vn.giakhanhvn.skysim.command.CommandSource;
 import vn.giakhanhvn.skysim.command.SCommand;
-import vn.giakhanhvn.skysim.entity.EntitySpawner;
-import vn.giakhanhvn.skysim.entity.SEntityType;
+import vn.giakhanhvn.skysim.features.entity.EntitySpawner;
+import vn.giakhanhvn.skysim.features.entity.SEntityType;
 import vn.giakhanhvn.skysim.util.SUtil;
 
 @CommandParameters(description="Manage entity spawners.", usage="/<command> [create <type> | delete <index>]", aliases="entityspawner,es,spawner,spawners", permission="spt.entity")

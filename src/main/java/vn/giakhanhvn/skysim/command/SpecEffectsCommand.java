@@ -9,12 +9,7 @@ package vn.giakhanhvn.skysim.command;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.ConsoleCommandSender;
-import vn.giakhanhvn.skysim.command.CommandArgumentException;
-import vn.giakhanhvn.skysim.command.CommandFailException;
-import vn.giakhanhvn.skysim.command.CommandParameters;
-import vn.giakhanhvn.skysim.command.CommandSource;
-import vn.giakhanhvn.skysim.command.SCommand;
-import vn.giakhanhvn.skysim.potion.ActivePotionEffect;
+import vn.giakhanhvn.skysim.features.potion.ActivePotionEffect;
 import vn.giakhanhvn.skysim.util.SUtil;
 
 @CommandParameters(description="Get your current active potion effects.", aliases="effect", permission="spt.item")

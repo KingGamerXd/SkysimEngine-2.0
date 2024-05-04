@@ -13,10 +13,7 @@ import java.util.Map;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
-import vn.giakhanhvn.skysim.command.CommandParameters;
-import vn.giakhanhvn.skysim.command.CommandSource;
-import vn.giakhanhvn.skysim.command.SCommand;
-import vn.giakhanhvn.skysim.region.RegionGenerator;
+import vn.giakhanhvn.skysim.features.region.RegionGenerator;
 import vn.giakhanhvn.skysim.util.Sputnik;
 
 @CommandParameters(description="Manage world regions.", usage="", aliases="hub")

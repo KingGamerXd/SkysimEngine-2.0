@@ -4,8 +4,8 @@
 package vn.giakhanhvn.skysim.gui;
 
 import vn.giakhanhvn.skysim.gui.ShopGUI;
-import vn.giakhanhvn.skysim.item.SItem;
-import vn.giakhanhvn.skysim.item.SMaterial;
+import vn.giakhanhvn.skysim.features.item.SItem;
+import vn.giakhanhvn.skysim.features.item.SMaterial;
 import vn.giakhanhvn.skysim.util.SUtil;
 
 public class FarmMerchantGUI

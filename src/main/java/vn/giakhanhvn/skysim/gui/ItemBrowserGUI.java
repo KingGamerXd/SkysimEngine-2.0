@@ -23,8 +23,8 @@ import org.bukkit.inventory.ItemStack;
 import vn.giakhanhvn.skysim.gui.GUI;
 import vn.giakhanhvn.skysim.gui.GUIClickableItem;
 import vn.giakhanhvn.skysim.gui.GUIQueryItem;
-import vn.giakhanhvn.skysim.item.SItem;
-import vn.giakhanhvn.skysim.item.SMaterial;
+import vn.giakhanhvn.skysim.features.item.SItem;
+import vn.giakhanhvn.skysim.features.item.SMaterial;
 import vn.giakhanhvn.skysim.util.PaginationList;
 import vn.giakhanhvn.skysim.util.SUtil;
 

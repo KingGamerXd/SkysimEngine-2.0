@@ -7,12 +7,7 @@
 package vn.giakhanhvn.skysim.command;
 
 import org.bukkit.command.ConsoleCommandSender;
-import vn.giakhanhvn.skysim.collection.ItemCollection;
-import vn.giakhanhvn.skysim.command.CommandArgumentException;
-import vn.giakhanhvn.skysim.command.CommandFailException;
-import vn.giakhanhvn.skysim.command.CommandParameters;
-import vn.giakhanhvn.skysim.command.CommandSource;
-import vn.giakhanhvn.skysim.command.SCommand;
+import vn.giakhanhvn.skysim.features.collection.ItemCollection;
 import vn.giakhanhvn.skysim.user.User;
 import vn.giakhanhvn.skysim.util.SUtil;
 

@@ -47,7 +47,6 @@ import com.google.common.util.concurrent.AtomicDouble;
 import de.tr7zw.nbtapi.NBTItem;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -64,7 +63,6 @@ import java.util.stream.Collectors;
 
 import lombok.Getter;
 import lombok.Setter;
-import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -74,7 +72,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -82,7 +79,6 @@ import org.bukkit.craftbukkit.v1_8_R3.entity.CraftHumanEntity;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Damageable;
-import org.bukkit.entity.EnderDragon;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.HumanEntity;
@@ -92,58 +88,54 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
-import org.bukkit.metadata.MetadataValue;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.Vector;
 import vn.giakhanhvn.skysim.Repeater;
 import vn.giakhanhvn.skysim.SkySimEngine;
-import vn.giakhanhvn.skysim.auction.AuctionBid;
-import vn.giakhanhvn.skysim.auction.AuctionEscrow;
-import vn.giakhanhvn.skysim.auction.AuctionItem;
-import vn.giakhanhvn.skysim.collection.ItemCollection;
-import vn.giakhanhvn.skysim.collection.ItemCollectionReward;
-import vn.giakhanhvn.skysim.collection.ItemCollectionRewards;
+import vn.giakhanhvn.skysim.features.auction.AuctionBid;
+import vn.giakhanhvn.skysim.features.auction.AuctionEscrow;
+import vn.giakhanhvn.skysim.features.auction.AuctionItem;
+import vn.giakhanhvn.skysim.features.collection.ItemCollection;
+import vn.giakhanhvn.skysim.features.collection.ItemCollectionReward;
+import vn.giakhanhvn.skysim.features.collection.ItemCollectionRewards;
 import vn.giakhanhvn.skysim.config.Config;
-import vn.giakhanhvn.skysim.dungeons.ItemSerial;
-import vn.giakhanhvn.skysim.enchantment.Enchantment;
-import vn.giakhanhvn.skysim.enchantment.EnchantmentType;
-import vn.giakhanhvn.skysim.entity.SEntity;
-import vn.giakhanhvn.skysim.entity.dungeons.boss.sadan.SadanFunction;
-import vn.giakhanhvn.skysim.entity.dungeons.boss.sadan.SadanHuman;
-import vn.giakhanhvn.skysim.entity.nms.VoidgloomSeraph;
+import vn.giakhanhvn.skysim.features.dungeons.ItemSerial;
+import vn.giakhanhvn.skysim.features.enchantment.Enchantment;
+import vn.giakhanhvn.skysim.features.enchantment.EnchantmentType;
+import vn.giakhanhvn.skysim.features.entity.SEntity;
+import vn.giakhanhvn.skysim.features.entity.dungeons.boss.sadan.SadanFunction;
+import vn.giakhanhvn.skysim.features.entity.dungeons.boss.sadan.SadanHuman;
+import vn.giakhanhvn.skysim.features.entity.nms.VoidgloomSeraph;
+import vn.giakhanhvn.skysim.features.item.SItem;
 import vn.giakhanhvn.skysim.gui.PetsGUI;
-import vn.giakhanhvn.skysim.item.GenericItemType;
-import vn.giakhanhvn.skysim.item.PlayerBoostStatistics;
-import vn.giakhanhvn.skysim.item.SItem;
-import vn.giakhanhvn.skysim.item.SMaterial;
-import vn.giakhanhvn.skysim.item.pet.Pet;
+import vn.giakhanhvn.skysim.features.item.GenericItemType;
+import vn.giakhanhvn.skysim.features.item.PlayerBoostStatistics;
+import vn.giakhanhvn.skysim.features.item.SItem;
+import vn.giakhanhvn.skysim.features.item.SMaterial;
+import vn.giakhanhvn.skysim.features.item.pet.Pet;
 import vn.giakhanhvn.skysim.listener.PlayerListener;
-import vn.giakhanhvn.skysim.potion.ActivePotionEffect;
-import vn.giakhanhvn.skysim.potion.PotionEffect;
-import vn.giakhanhvn.skysim.potion.PotionEffectType;
-import vn.giakhanhvn.skysim.reforge.Reforge;
-import vn.giakhanhvn.skysim.reforge.ReforgeType;
-import vn.giakhanhvn.skysim.region.Region;
-import vn.giakhanhvn.skysim.skill.ArcherSkill;
-import vn.giakhanhvn.skysim.skill.BerserkSkill;
-import vn.giakhanhvn.skysim.skill.CatacombsSkill;
-import vn.giakhanhvn.skysim.skill.CombatSkill;
-import vn.giakhanhvn.skysim.skill.EnchantingSkill;
-import vn.giakhanhvn.skysim.skill.FarmingSkill;
-import vn.giakhanhvn.skysim.skill.ForagingSkill;
-import vn.giakhanhvn.skysim.skill.HealerSkill;
-import vn.giakhanhvn.skysim.skill.MageSkill;
-import vn.giakhanhvn.skysim.skill.MiningSkill;
-import vn.giakhanhvn.skysim.skill.Skill;
-import vn.giakhanhvn.skysim.skill.TankSkill;
-import vn.giakhanhvn.skysim.slayer.SlayerBossType;
-import vn.giakhanhvn.skysim.slayer.SlayerQuest;
-import vn.giakhanhvn.skysim.user.AuctionSettings;
-import vn.giakhanhvn.skysim.user.PlayerStatistics;
-import vn.giakhanhvn.skysim.user.PlayerUtils;
-import vn.giakhanhvn.skysim.util.BukkitSerializeClass;
+import vn.giakhanhvn.skysim.features.potion.ActivePotionEffect;
+import vn.giakhanhvn.skysim.features.potion.PotionEffect;
+import vn.giakhanhvn.skysim.features.potion.PotionEffectType;
+import vn.giakhanhvn.skysim.features.reforge.Reforge;
+import vn.giakhanhvn.skysim.features.reforge.ReforgeType;
+import vn.giakhanhvn.skysim.features.region.Region;
+import vn.giakhanhvn.skysim.features.skill.ArcherSkill;
+import vn.giakhanhvn.skysim.features.skill.BerserkSkill;
+import vn.giakhanhvn.skysim.features.skill.CatacombsSkill;
+import vn.giakhanhvn.skysim.features.skill.CombatSkill;
+import vn.giakhanhvn.skysim.features.skill.EnchantingSkill;
+import vn.giakhanhvn.skysim.features.skill.FarmingSkill;
+import vn.giakhanhvn.skysim.features.skill.ForagingSkill;
+import vn.giakhanhvn.skysim.features.skill.HealerSkill;
+import vn.giakhanhvn.skysim.features.skill.MageSkill;
+import vn.giakhanhvn.skysim.features.skill.MiningSkill;
+import vn.giakhanhvn.skysim.features.skill.Skill;
+import vn.giakhanhvn.skysim.features.skill.TankSkill;
+import vn.giakhanhvn.skysim.features.slayer.SlayerBossType;
+import vn.giakhanhvn.skysim.features.slayer.SlayerQuest;
+import vn.giakhanhvn.skysim.api.serializer.ItemStackSerializer;
 import vn.giakhanhvn.skysim.util.EntityManager;
 import vn.giakhanhvn.skysim.util.SLog;
 import vn.giakhanhvn.skysim.util.SUtil;
@@ -524,7 +516,7 @@ public class User {
             arraylist.remove(i);
         }
         ItemStack[] arrl = (ItemStack[])arraylist.toArray();
-        return BukkitSerializeClass.itemStackArrayToBase64(arrl);
+        return ItemStackSerializer.itemStackArrayToBase64(arrl);
     }
 
     public void saveArmor() {
@@ -532,7 +524,7 @@ public class User {
             return;
         }
         String a = null;
-        a = BukkitSerializeClass.itemStackArrayToBase64(Bukkit.getPlayer(this.uuid).getInventory().getArmorContents());
+        a = ItemStackSerializer.itemStackArrayToBase64(Bukkit.getPlayer(this.uuid).getInventory().getArmorContents());
         this.config.set("database.armor", a);
         this.config.save();
     }
@@ -559,17 +551,17 @@ public class User {
     public void loadPlayerData() throws IllegalArgumentException, IOException {
         Player player = Bukkit.getPlayer(this.uuid);
         if (this.config.getString("database.inventory") != null) {
-            player.getInventory().setContents(BukkitSerializeClass.itemStackArrayFromBase64(this.config.getString("database.inventory")));
+            player.getInventory().setContents(ItemStackSerializer.itemStackArrayFromBase64(this.config.getString("database.inventory")));
         } else {
             player.getInventory().setContents(new ItemStack[player.getInventory().getSize()]);
         }
         if (this.config.getString("database.enderchest") != null) {
-            player.getEnderChest().setContents(BukkitSerializeClass.itemStackArrayFromBase64(this.config.getString("database.enderchest")));
+            player.getEnderChest().setContents(ItemStackSerializer.itemStackArrayFromBase64(this.config.getString("database.enderchest")));
         } else {
             player.getInventory().setContents(new ItemStack[player.getEnderChest().getSize()]);
         }
         if (this.config.getString("database.armor") != null) {
-            player.getInventory().setArmorContents(BukkitSerializeClass.itemStackArrayFromBase64(this.config.getString("database.armor")));
+            player.getInventory().setArmorContents(ItemStackSerializer.itemStackArrayFromBase64(this.config.getString("database.armor")));
         } else {
             player.getInventory().setContents(new ItemStack[player.getInventory().getArmorContents().length]);
         }
@@ -577,7 +569,7 @@ public class User {
             Sputnik.setTotalExperience(player, this.config.getInt("database.minecraft_xp"));
         }
         if (this.config.contains("database.stashed")) {
-            ItemStack[] arr = BukkitSerializeClass.itemStackArrayFromBase64(this.config.getString("database.stashed"));
+            ItemStack[] arr = ItemStackSerializer.itemStackArrayFromBase64(this.config.getString("database.stashed"));
             this.stashedItems = Arrays.asList(arr);
         } else {
             this.stashedItems = new ArrayList<>();
@@ -618,7 +610,7 @@ public class User {
         }
         ItemStack[] is = new ItemStack[this.stashedItems.size()];
         is = this.stashedItems.toArray(is);
-        this.config.set("database.stashed", BukkitSerializeClass.itemStackArrayToBase64(is));
+        this.config.set("database.stashed", ItemStackSerializer.itemStackArrayToBase64(is));
         this.config.save();
     }
 
@@ -823,7 +815,7 @@ public class User {
     public void clearQuiver() {
         this.quiver.clear();
     }
-
+    
     public void addPet(SItem item) {
         this.pets.add(new Pet.PetItem(item.getType(), item.getRarity(), item.getData().getDouble("xp")));
     }

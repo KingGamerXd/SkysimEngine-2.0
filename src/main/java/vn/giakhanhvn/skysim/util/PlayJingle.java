@@ -21,7 +21,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import vn.giakhanhvn.skysim.SkySimEngine;
-import vn.giakhanhvn.skysim.entity.dungeons.boss.sadan.SadanHuman;
+import vn.giakhanhvn.skysim.features.entity.dungeons.boss.sadan.SadanHuman;
 
 public class PlayJingle {
     public static void play(SkySimSong eff, byte volume, final Location loc, int radius) {
