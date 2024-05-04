@@ -16,10 +16,6 @@ import java.util.Map;
 import net.minecraft.server.v1_8_R3.EntityInsentient;
 import net.minecraft.server.v1_8_R3.EntityTypes;
 import org.bukkit.entity.EntityType;
-import vn.giakhanhvn.skysim.dimoon.Dimoonizae;
-import vn.giakhanhvn.skysim.entity.EntityFunction;
-import vn.giakhanhvn.skysim.entity.EntityStatistics;
-import vn.giakhanhvn.skysim.entity.Stronker;
 import vn.giakhanhvn.skysim.entity.caverns.DiamondSkeleton;
 import vn.giakhanhvn.skysim.entity.caverns.DiamondZombie;
 import vn.giakhanhvn.skysim.entity.caverns.EnchantedDiamondSkeleton;
@@ -181,7 +177,6 @@ public enum SEntityType {
     WATCHER_BONZO(EntityType.ZOMBIE, WatcherBonzo.class),
     GOBLIN_DIMOON(EntityType.ZOMBIE, Goblinzine.class),
     DGOBLIN_DIMOON(EntityType.ZOMBIE, DiamondGoblinzine.class),
-    DIMOON_MINIBOSS(EntityType.ZOMBIE, Dimoonizae.class),
     LOST_ADV_SUP(EntityType.ZOMBIE, SuperiorLostAdv.class),
     LOST_ADV_YOUNG(EntityType.ZOMBIE, YoungLostAdv.class),
     LOST_ADV_UNSTABLE(EntityType.ZOMBIE, Unstable.class),

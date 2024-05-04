@@ -1615,21 +1615,9 @@ public class Sputnik {
         return bc;
     }
 
-    public static boolean tpAbilUsable(Player p) {
-        if (p.getWorld().getName().contains("arena") && SkySimEngine.getPlugin().dimoon != null) {
-            return SkySimEngine.getPlugin().dimoon.stunned;
-        }
-        return true;
-    }
 
-    public static void teleport(Player p, Location loc) {
-        if (!Sputnik.tpAbilUsable(p)) {
-            p.sendMessage(Sputnik.trans("&cA Magicial Force have stopped you from using this teleport ability!"));
-            return;
-        }
-        p.teleport(loc);
-    }
 
+    
     public static PositionSongPlayer playNativeSound(String filename, int radius, int volume, boolean loop, final Location loc) {
         Song song = NBSDecoder.parse((File)new File(SkySimEngine.getPlugin().getDataFolder() + File.separator + "/songs/" + filename + ".nbs"));
         final PositionSongPlayer esp = new PositionSongPlayer(song);

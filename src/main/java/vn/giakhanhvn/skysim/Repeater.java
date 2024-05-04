@@ -73,7 +73,6 @@ import vn.giakhanhvn.skysim.SkyBlockCalendar;
 import vn.giakhanhvn.skysim.SkySimEngine;
 import vn.giakhanhvn.skysim.ZSHash;
 import vn.giakhanhvn.skysim.command.RebootServerCommand;
-import vn.giakhanhvn.skysim.dimoon.SummoningSequence;
 import vn.giakhanhvn.skysim.dungeons.Blessings;
 import vn.giakhanhvn.skysim.enchantment.Enchantment;
 import vn.giakhanhvn.skysim.enchantment.EnchantmentType;
@@ -618,29 +617,7 @@ public class Repeater {
             }
             sidebar.add(ChatColor.AQUA + "     ");
         }
-        if (player.getWorld().getName().contains("arena") && SkySimEngine.getPlugin().dimoon == null && SkySimEngine.getPlugin().sq != null) {
-            SummoningSequence sq = SkySimEngine.getPlugin().sq;
-            sidebar.add(Sputnik.trans("&l"));
-            sidebar.add(Sputnik.trans("&aCatalysts &fPlaced &7(&e" + sq.catalystInTheAltar() + "&7/&a8&7)"));
-            sidebar.add(Sputnik.trans("&6Crystal &fStatus " + (sq.isAcD() ? "&b✬" : "&7✬") + (sq.isAcR() ? "&c✬" : "&7✬") + (sq.isAcG() ? "&e✬" : "&7✬") + (sq.isAcE() ? "&a✬" : "&7✬")));
-            if (sq.isBossSpawning()) {
-                sidebar.add(Sputnik.trans("&d"));
-                sidebar.add(Sputnik.trans("&cThe Boss is Spawning..."));
-            }
-            sidebar.add(Sputnik.trans("&c"));
-        }
-        if (player.getWorld().getName().equalsIgnoreCase("arena") && SkySimEngine.getPlugin().dimoon != null) {
-            Set damageSet = ((HashMultimap)Multimaps.invertFrom(SkySimEngine.getPlugin().dimoon.getDamages(), (Multimap)HashMultimap.create())).get(player.getName());
-            int damageDealt = damageSet.iterator().hasNext() ? (Integer)damageSet.iterator().next() : 0;
-            sidebar.add(Sputnik.trans("&b"));
-            sidebar.add(Sputnik.trans("Dimoon Boss HP: &a" + SUtil.commaify(SkySimEngine.getPlugin().dimoon.getHealth()) + " &c❤"));
-            sidebar.add(Sputnik.trans("Boss Stunned: " + (SkySimEngine.getPlugin().dimoon.stunned ? "&a&lYES" : "&c&lNO")));
-            sidebar.add(Sputnik.trans("Parkours Completed: &e" + SkySimEngine.getPlugin().dimoon.getParkoursCompleted()));
-            sidebar.add(Sputnik.trans("&c&l"));
-            sidebar.add(Sputnik.trans("Your Status: " + (user.isInDanger() ? "&c&lDANGER!" : "&a&lSAFE")));
-            sidebar.add(Sputnik.trans("Your Damage: &c" + SUtil.commaify(damageDealt)));
-            sidebar.add(Sputnik.trans("&a"));
-        }
+
         if (SBA_MAP.containsKey(uuid)) {
             if (SBA_MAP.get(uuid).booleanValue()) {
                 sidebar.add(ChatColor.YELLOW + "www.hypixel.net");

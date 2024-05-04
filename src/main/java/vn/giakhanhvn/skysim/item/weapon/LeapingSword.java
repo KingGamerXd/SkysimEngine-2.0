@@ -108,9 +108,6 @@ Ability {
 
     @Override
     public void onAbilityUse(final Player player, SItem sItem) {
-        if (!Sputnik.tpAbilUsable(player)) {
-            return;
-        }
         player.setVelocity(player.getLocation().getDirection().multiply(3).setY(2));
         new BukkitRunnable(){
 

@@ -127,13 +127,6 @@ import vn.giakhanhvn.skysim.command.ToggleRepeatingCommand;
 import vn.giakhanhvn.skysim.command.ToggleSBACommand;
 import vn.giakhanhvn.skysim.command.TradeCommand;
 import vn.giakhanhvn.skysim.config.Config;
-import vn.giakhanhvn.skysim.dimoon.Arena;
-import vn.giakhanhvn.skysim.dimoon.Dimoon;
-import vn.giakhanhvn.skysim.dimoon.DimoonLootItem;
-import vn.giakhanhvn.skysim.dimoon.DimoonLootTable;
-import vn.giakhanhvn.skysim.dimoon.SummoningSequence;
-import vn.giakhanhvn.skysim.dimoon.listeners.EntityListener;
-import vn.giakhanhvn.skysim.dimoon.listeners.PlayerListener;
 import vn.giakhanhvn.skysim.enchantment.EnchantmentType;
 import vn.giakhanhvn.skysim.entity.EntityPopulator;
 import vn.giakhanhvn.skysim.entity.EntitySpawner;
@@ -181,11 +174,7 @@ public class SkySimEngine
     @Getter
     private static SkySimEngine plugin;
     private final PacketHelper packetInj = new PacketHelper();
-    public Arena arena = null;
-    public Dimoon dimoon = null;
-    @Getter
-    @Setter
-    private SummoningSequence summoningSequence = null;
+
     public boolean altarCooldown = false;
     @Getter
     private final ServerVersion serverVersion = new ServerVersion("beta", 0, 7, 2, 0);
@@ -312,36 +301,7 @@ public class SkySimEngine
             SLog.info("SKYSIM ENGINE - MADE BY GIAKHANHVN");
             SLog.info("PLUGIN ENABLED! HOOKED INTO SSS!");
             SLog.info("===================================");
-            initDummyWorld(); // create dummy arena map
-            this.sq = new SummoningSequence(Bukkit.getWorld("arena"));
-            Bukkit.getWorld("arena").setAutoSave(false);
-            this.getServer().getPluginManager().registerEvents(new PlayerListener(), this);
-            this.getServer().getPluginManager().registerEvents(new EntityListener(), this);
-            this.getServer().getPluginManager().registerEvents(new vn.giakhanhvn.skysim.dimoon.listeners.BlockListener(), this);
-            File file = new File(this.getDataFolder(), "parkours");
-            if (!file.exists()) {
-                try {
-                    Files.createParentDirs(file);
-                    file.mkdir();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-            SItem gtigerm = SItem.of(SMaterial.HIDDEN_GOLDEN_TIGER_2022);
-            gtigerm.setRarity(Rarity.MYTHIC);
-            SItem lucki8 = SItem.of(SMaterial.ENCHANTED_BOOK);
-            lucki8.addEnchantment(EnchantmentType.LUCKINESS, 8);
-            SItem vicious15 = SItem.of(SMaterial.ENCHANTED_BOOK);
-            vicious15.addEnchantment(EnchantmentType.VICIOUS, 15);
-            SItem chimera6 = SItem.of(SMaterial.ENCHANTED_BOOK);
-            chimera6.addEnchantment(EnchantmentType.CHIMERA, 6);
-            SItem tbits = SItem.of(SMaterial.ENCHANTED_BOOK);
-            tbits.addEnchantment(EnchantmentType.TURBO_GEM, 1);
-            DimoonLootTable.highQualitylootTable = new ArrayList<DimoonLootItem>(Arrays.asList(new DimoonLootItem(SItem.of(SMaterial.HIDDEN_DIMOONIZARY_DAGGER), 400, 1100), new DimoonLootItem(SItem.of(SMaterial.HIDDEN_EXCRARION), 310, 1000), new DimoonLootItem(SItem.of(SMaterial.HIDDEN_GIGACHAD_HELMET), 290, 700), new DimoonLootItem(SItem.of(SMaterial.HIDDEN_GIGACHAD_CHESTPLATE), 340, 900), new DimoonLootItem(SItem.of(SMaterial.HIDDEN_GIGACHAD_LEGGINGS), 330, 800), new DimoonLootItem(SItem.of(SMaterial.HIDDEN_GIGACHAD_BOOTS), 220, 500), new DimoonLootItem(SItem.of(SMaterial.HIDDEN_QUANTUMFLUX_POWER_ORB), 310, 900), new DimoonLootItem(SItem.of(SMaterial.HIDDEN_ARCHIVY), 370, 1000), new DimoonLootItem(SItem.of(SMaterial.HIDDEN_MAGICIVY), 370, 1000), new DimoonLootItem(SItem.of(SMaterial.HIDDEN_GOLDEN_TIGER_2022), 320, 900), new DimoonLootItem(gtigerm, 300, 1000), new DimoonLootItem(lucki8, 170, 700), new DimoonLootItem(vicious15, 100, 600), new DimoonLootItem(chimera6, 260, 700), new DimoonLootItem(tbits, 210, 700)));
-            SItem sItem = SItem.of(SMaterial.ENCHANTED_BOOK);
-            sItem.addEnchantment(EnchantmentType.LUCKINESS, 6);
-            DimoonLootTable.lowQualitylootTable = new ArrayList<DimoonLootItem>(Arrays.asList(new DimoonLootItem(sItem, 20, 150), new DimoonLootItem(SItem.of(SMaterial.HIDDEN_DIMOON_GEM), 20, 100), new DimoonLootItem(SItem.of(SMaterial.HIDDEN_DIMOON_FRAG), 1, 1, 0, true)));
-            Arena.cleanArena();
+
     }
 
     public void onDisable() {

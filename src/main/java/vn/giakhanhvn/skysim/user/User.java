@@ -106,7 +106,6 @@ import vn.giakhanhvn.skysim.collection.ItemCollection;
 import vn.giakhanhvn.skysim.collection.ItemCollectionReward;
 import vn.giakhanhvn.skysim.collection.ItemCollectionRewards;
 import vn.giakhanhvn.skysim.config.Config;
-import vn.giakhanhvn.skysim.dimoon.Dimoon;
 import vn.giakhanhvn.skysim.dungeons.ItemSerial;
 import vn.giakhanhvn.skysim.enchantment.Enchantment;
 import vn.giakhanhvn.skysim.enchantment.EnchantmentType;
@@ -364,14 +363,6 @@ public class User {
         this.slayerXP[1] = this.config.getInt("xp.slayer.tarantulaBroodfather");
         this.slayerXP[2] = this.config.getInt("xp.slayer.svenPackmaster");
         this.slayerXP[3] = this.config.getInt("xp.slayer.voidgloomSeraph");
-        this.crystalLVL[0] = this.config.getInt("crystals.level.health");
-        this.crystalLVL[1] = this.config.getInt("crystals.level.defense");
-        this.crystalLVL[2] = this.config.getInt("crystals.level.critdmg");
-        this.crystalLVL[3] = this.config.getInt("crystals.level.critchance");
-        this.crystalLVL[4] = this.config.getInt("crystals.level.intelligence");
-        this.crystalLVL[5] = this.config.getInt("crystals.level.ferocity");
-        this.crystalLVL[6] = this.config.getInt("crystals.level.magicfind");
-        this.crystalLVL[7] = this.config.getInt("crystals.level.strength");
         this.permanentCoins = this.config.getBoolean("permanentCoins");
         this.slayerQuest = (SlayerQuest)this.config.get("slayer.quest");
         if (this.config.contains("pets")) {
@@ -486,14 +477,6 @@ public class User {
         this.config.set("slayer.tarantulaBroodfather.highest", this.highestSlayers[1]);
         this.config.set("slayer.svenPackmaster.highest", this.highestSlayers[2]);
         this.config.set("slayer.voidgloomSeraph.highest", this.highestSlayers[3]);
-        this.config.set("crystals.level.health", this.crystalLVL[0]);
-        this.config.set("crystals.level.defense", this.crystalLVL[1]);
-        this.config.set("crystals.level.critdmg", this.crystalLVL[2]);
-        this.config.set("crystals.level.critchance", this.crystalLVL[3]);
-        this.config.set("crystals.level.intelligence", this.crystalLVL[4]);
-        this.config.set("crystals.level.ferocity", this.crystalLVL[5]);
-        this.config.set("crystals.level.magicfind", this.crystalLVL[6]);
-        this.config.set("crystals.level.strength", this.crystalLVL[7]);
         this.config.set("xp.slayer.revenantHorror", this.slayerXP[0]);
         this.config.set("xp.slayer.tarantulaBroodfather", this.slayerXP[1]);
         this.config.set("xp.slayer.svenPackmaster", this.slayerXP[2]);
@@ -1115,14 +1098,6 @@ public class User {
         player.sendMessage(Sputnik.trans(message));
     }
 
-    public static void dmgDimon(LivingEntity entity, Player damager) {
-        int bonusDamage = 0;
-        if (damager != null && entity.hasMetadata("Dimoon") && SkySimEngine.getPlugin().dimoon != null) {
-            Dimoon dimoon = SkySimEngine.getPlugin().dimoon;
-            int damage = 1 + dimoon.getParkoursCompleted() + bonusDamage;
-            dimoon.damage(damage, damager.getName());
-        }
-    }
 
     public void damageEntity(Damageable entity1, double damageBase) {
         SItem sitem;
@@ -1131,7 +1106,6 @@ public class User {
         }
         Player player = Bukkit.getPlayer(this.uuid);
         double damage = damageBase;
-        User.dmgDimon((LivingEntity)entity1, player);
         if (VoidgloomSeraph.HIT_SHIELD.containsKey(entity1)) {
             VoidgloomSeraph.HIT_SHIELD.put(entity1, VoidgloomSeraph.HIT_SHIELD.get(entity1) - 1);
             entity1.getWorld().playSound(entity1.getLocation(), Sound.ENDERMAN_TELEPORT, 1.0f, 2.0f);

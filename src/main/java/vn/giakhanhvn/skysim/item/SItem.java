@@ -757,9 +757,6 @@ ConfigurationSerializable {
     }
 
     public static void etherWarpTeleportation(Player player, SItem sitem) {
-        if (!Sputnik.tpAbilUsable(player)) {
-            return;
-        }
         boolean haveBlockInRange = false;
         try {
             for (int range = 1; range < 57; ++range) {
@@ -790,15 +787,9 @@ ConfigurationSerializable {
             location.setYaw(player.getLocation().getYaw());
             location.setPitch(player.getLocation().getPitch());
             location.add(0.5, 1.0, 0.5);
-            if (f_ > 1) {
-                Sputnik.teleport(player, location);
-            } else {
-                Sputnik.teleport(player, player.getLocation());
-            }
+            player.teleport(f_ > 1 ? location : player.getLocation());
         }
-        catch (IllegalStateException illegalStateException) {
-            // empty catch block
-        }
+        catch (IllegalStateException ignored) {}
         player.playSound(player.getLocation(), Sound.ENDERMAN_TELEPORT, 3.0f, 1.0f);
     }
 

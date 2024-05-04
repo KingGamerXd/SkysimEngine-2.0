@@ -41,10 +41,6 @@ FishingRodFunction {
             return;
         }
         final Player player = e.getPlayer();
-        if (!Sputnik.tpAbilUsable(player)) {
-            player.sendMessage(ChatColor.RED + "Dimoon destroyed your hook! Yikes!");
-            return;
-        }
         if (COOLDOWN.contains(player.getUniqueId())) {
             player.sendMessage(ChatColor.RED + "Whow! Slow down there!");
             return;

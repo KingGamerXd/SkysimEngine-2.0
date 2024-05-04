@@ -126,11 +126,8 @@ Ability {
             if (f_ != 10) {
                 player.sendMessage(ChatColor.RED + "There are blocks in the way!");
             }
-            if (f_ > 1) {
-                Sputnik.teleport(player, location);
-            } else {
-                Sputnik.teleport(player, player.getLocation());
-            }
+            player.teleport(f_ > 1 ? location : player.getLocation());
+
             Sputnik.witherShieldActive2(player);
             for (Entity entity : player.getWorld().getNearbyEntities(player.getLocation(), 6.0, 6.0, 6.0)) {
                 if (entity.isDead() || !(entity instanceof LivingEntity) || entity.hasMetadata("GiantSword") || entity.hasMetadata("NoAffect") || entity instanceof Player || entity instanceof EnderDragonPart || entity instanceof Villager || entity instanceof ArmorStand) continue;

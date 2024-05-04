@@ -98,11 +98,7 @@ Ability {
             if (f_ != 8) {
                 player.sendMessage(ChatColor.RED + "There are blocks in the way!");
             }
-            if (f_ > 1) {
-                Sputnik.teleport(player, location);
-            } else {
-                Sputnik.teleport(player, player.getLocation());
-            }
+            player.teleport(f_ > 1 ? location : player.getLocation());
         }
         catch (IllegalStateException illegalStateException) {
             // empty catch block

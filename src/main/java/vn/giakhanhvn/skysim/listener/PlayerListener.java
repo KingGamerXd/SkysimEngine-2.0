@@ -818,7 +818,6 @@ extends PListener {
                             VoidgloomSeraph.HIT_SHIELD.put(damaged, VoidgloomSeraph.HIT_SHIELD.get(damaged) - 1);
                             damaged.getWorld().playSound(damaged.getLocation(), Sound.ENDERMAN_TELEPORT, 1.0f, 2.0f);
                         }
-                        User.dmgDimon((LivingEntity)damaged, p);
                         Sputnik.ferocityParticle((LivingEntity)damaged);
                         PlayerListener.spawnDamageInd(damaged, finalDamage, crit);
                         p.playSound(p.getLocation(), Sound.IRONGOLEM_THROW, 1.0f, 1.35f);
