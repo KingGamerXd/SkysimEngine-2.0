@@ -146,7 +146,7 @@ public class User {
     public static final int ISLAND_SIZE = 125;
     private static final Map<UUID, User> USER_CACHE = new HashMap<UUID, User>();
     private static final SkySimEngine plugin = SkySimEngine.getPlugin();
-    private static final File USER_FOLDER = new File(new File("/rootshare/skysim"), "./users");
+    private static final File USER_FOLDER = new File(plugin.getDataFolder(), "./users");
     @Getter
     private long sadancollections;
     @Getter
@@ -815,7 +815,7 @@ public class User {
     public void clearQuiver() {
         this.quiver.clear();
     }
-    
+
     public void addPet(SItem item) {
         this.pets.add(new Pet.PetItem(item.getType(), item.getRarity(), item.getData().getDouble("xp")));
     }
