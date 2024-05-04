@@ -42,7 +42,6 @@ public class ItemLore {
      */
     public List<String> asBukkitLore() {
         List<String> ll;
-        String bf;
         String a;
         String p;
         OrbBuff buff;
@@ -55,7 +54,7 @@ public class ItemLore {
         MaterialStatistics statistics = material.getStatistics();
         Reforge reforge = this.parent.getReforge() == null ? Reforge.blank() : this.parent.getReforge();
         try {
-            this.player = Bukkit.getPlayer((UUID)UUID.fromString(this.parent.getDataString("owner")));
+            this.player = Bukkit.getPlayer(UUID.fromString(this.parent.getDataString("owner")));
         }
         catch (IllegalArgumentException illegalArgumentException) {
             // empty catch block
@@ -350,7 +349,7 @@ public class ItemLore {
         if (this.parent.getType() == SMaterial.HIDDEN_DONATOR_HELMET && Bukkit.getPlayer((String)(p = this.parent.getDataString("p_rcv"))) != null) {
             lore.add(Sputnik.trans("&7To: ") + Bukkit.getPlayer((String)p).getDisplayName());
         }
-        if (this.parent.getType() == SMaterial.HIDDEN_DONATOR_HELMET && (a = (bf = this.parent.getDataString("lore_d")).replaceAll("<>", " ")) != null && a != "null") {
+        if (this.parent.getType() == SMaterial.HIDDEN_DONATOR_HELMET && (a = this.parent.getDataString("lore_d").replaceAll("<>", " ")) != null && a != "null") {
             lore.add("");
             for (String string : SUtil.splitByWordAndLength(a, 25, "\\s")) {
                 lore.add(Sputnik.trans("&7" + string));

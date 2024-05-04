@@ -154,7 +154,6 @@ import vn.giakhanhvn.skysim.features.slayer.SlayerQuest;
 import vn.giakhanhvn.skysim.database.sql.SQLDatabase;
 import vn.giakhanhvn.skysim.database.sql.SQLRegionData;
 import vn.giakhanhvn.skysim.database.sql.SQLWorldData;
-import vn.giakhanhvn.skysim.server.ServerVersion;
 import vn.giakhanhvn.skysim.user.AuctionSettings;
 import vn.giakhanhvn.skysim.user.User;
 import vn.giakhanhvn.skysim.util.*;
@@ -201,6 +200,7 @@ public class SkySimEngine
     }
 
     public void onEnable() {
+            instance = this;
             this.bc = new BungeeChannel(this);
             SLog.info("===================================");
             SLog.info("SKYSIM ENGINE - MADE BY GIAKHANHVN");
