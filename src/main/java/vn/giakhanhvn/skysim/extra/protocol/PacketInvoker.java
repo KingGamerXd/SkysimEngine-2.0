@@ -213,11 +213,6 @@ public class PacketInvoker {
                     if (!(e instanceof Player) || (Player)e != owner || !((Player)e).isSneaking()) continue;
                     owner.sendMessage(Sputnik.trans("&5&lYou challenged the Voidling's Warden Boss! It is spawning..."));
                     SlayerQuest.playBossSpawn(drop.getLocation().clone().add(0.0, 2.0, 0.0), null);
-                    SUtil.delay(() -> {
-                        SEntity e1 = new SEntity(drop.getLocation().clone().add(0.0, 1.5, 0.0), SEntityType.VOIDLINGS_WARDEN, new Object[0]);
-                        e1.getEntity().setMetadata("owner", (MetadataValue)new FixedMetadataValue((Plugin)SkySimEngine.getPlugin(), (Object)owner.getUniqueId()));
-                        ((CraftZombie)e1.getEntity()).setTarget((LivingEntity)owner);
-                    }, 30L);
                     drop.remove();
                 }
             }

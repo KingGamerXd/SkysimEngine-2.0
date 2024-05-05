@@ -60,8 +60,6 @@ extends SCommand {
                     is.saveTo(sitem);
                     sitem.setStarAmount(5);
                 }
-            } else if (args[0].contains("gtp")) {
-                new SEntity((Entity)player, SEntityType.TEST_CHIMMY_OBJECT_T34, new Object[0]);
             } else if (!args[0].contains("wipe")) {
                 if (args[0].contains("vlw")) {
                     PacketInvoker.dropVoidSpawner(player, player.getLocation());
