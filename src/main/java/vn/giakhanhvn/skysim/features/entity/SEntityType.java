@@ -39,7 +39,6 @@ import vn.giakhanhvn.skysim.features.entity.den.TarantulaBeast;
 import vn.giakhanhvn.skysim.features.entity.den.TarantulaVermin;
 import vn.giakhanhvn.skysim.features.entity.den.VoraciousSpider;
 import vn.giakhanhvn.skysim.features.entity.den.WeaverSpider;
-import vn.giakhanhvn.skysim.features.entity.dungeons.TestingMob;
 import vn.giakhanhvn.skysim.features.entity.dungeons.boss.sadan.BigfootGiant;
 import vn.giakhanhvn.skysim.features.entity.dungeons.boss.sadan.DiamondGiant;
 import vn.giakhanhvn.skysim.features.entity.dungeons.boss.sadan.GiantsDummy;
@@ -105,7 +104,6 @@ import vn.giakhanhvn.skysim.features.entity.end.VoidlingDevotee;
 import vn.giakhanhvn.skysim.features.entity.end.VoidlingExtremist;
 import vn.giakhanhvn.skysim.features.entity.end.VoidlingFanatic;
 import vn.giakhanhvn.skysim.features.entity.end.VoidlingRadical;
-import vn.giakhanhvn.skysim.features.entity.end.VoidlingsWardenMob;
 import vn.giakhanhvn.skysim.features.entity.end.Watcher;
 import vn.giakhanhvn.skysim.features.entity.end.WeakEnderman;
 import vn.giakhanhvn.skysim.features.entity.end.Zealot;
@@ -187,9 +185,7 @@ public enum SEntityType {
     SCARY_CAVE_UNDEADBOSS_1(EntityType.ZOMBIE, UndeadGiaKhanhvn.class),
     SHADOW_ASSASSINS(EntityType.ZOMBIE, ShadowAssassins.class),
     TERRORANT(EntityType.ZOMBIE, Giant.class),
-    TEST_OBJECT(EntityType.ZOMBIE, Zombie.class),
-    VOIDLINGS_WARDEN(EntityType.ZOMBIE, VoidlingsWardenMob.class),
-    TEST_CHIMMY_OBJECT_T34(EntityType.ZOMBIE, TestingMob.class),
+    ZOMBIE(EntityType.ZOMBIE, Zombie.class),
     TERRACOTTA_SADAN(EntityType.ZOMBIE, TerracottaSadan.class),
     BIGFOOT_SADAN(EntityType.ZOMBIE, BigfootGiant.class),
     LASR_SADAN(EntityType.ZOMBIE, LASRGiant.class),
@@ -281,7 +277,6 @@ public enum SEntityType {
     DASHER_SPIDER(EntityType.SPIDER, DasherSpider.class),
     WEAVER_SPIDER(EntityType.SPIDER, WeaverSpider.class),
     VORACIOUS_SPIDER(EntityType.SPIDER, VoraciousSpider.class),
-    ZOMBIE(EntityType.ZOMBIE, Zombie.class),
     ZOMBIE_VILLAGER(EntityType.ZOMBIE, ZombieVillager.class),
     CRYPT_GHOUL(EntityType.ZOMBIE, CryptGhoul.class),
     GOLDEN_GHOUL(EntityType.ZOMBIE, GoldenGhoul.class),
