@@ -171,7 +171,6 @@ import vn.giakhanhvn.skysim.features.item.SItem;
 import vn.giakhanhvn.skysim.features.item.SMaterial;
 import vn.giakhanhvn.skysim.features.item.accessory.AccessoryFunction;
 import vn.giakhanhvn.skysim.features.item.armor.PrecursorEye;
-import vn.giakhanhvn.skysim.features.item.armor.VoidlingsWardenHelmet;
 import vn.giakhanhvn.skysim.features.item.bow.BowFunction;
 import vn.giakhanhvn.skysim.features.item.pet.Pet;
 import vn.giakhanhvn.skysim.features.item.pet.PetAbility;
@@ -274,40 +273,6 @@ extends PListener {
             new BukkitRunnable(){
 
                 public void run() {
-                    ItemStack helm_vanilla;
-                    if (!player.isOnline()) {
-                        this.cancel();
-                        return;
-                    }
-                    if (player.getWorld().getName().contains("arena") && !player.isOp() && player.isFlying()) {
-                        player.setFlying(false);
-                    }
-                    if ((helm_vanilla = player.getInventory().getHelmet()) == null) {
-                        return;
-                    }
-                    SItem helm = SItem.find(helm_vanilla);
-                    if (helm != null && helm.getType() == SMaterial.HIDDEN_VOIDLINGS_WARDEN_HELMET) {
-                        ItemStack smStack = helm.getStack();
-                        SkullMeta meta = (SkullMeta)smStack.getItemMeta();
-                        GameProfile profile = new GameProfile(UUID.randomUUID(), null);
-                        byte[] ed = Base64.getEncoder().encode(String.format("{textures:{SKIN:{url:\"http://textures.minecraft.net/texture/%s\"}}}", VoidlingsWardenHelmet.getTexture()).getBytes());
-                        profile.getProperties().put("textures", new Property("textures", new String(ed)));
-                        try {
-                            Field f = meta.getClass().getDeclaredField("profile");
-                            f.setAccessible(true);
-                            f.set(meta, profile);
-                        }
-                        catch (IllegalAccessException | IllegalArgumentException | NoSuchFieldException exception) {
-                            // empty catch block
-                        }
-                        smStack.setItemMeta(meta);
-                        player.getInventory().setHelmet(smStack);
-                    }
-                }
-            }.runTaskTimer(SkySimEngine.getPlugin(), 0L, 1L);
-            new BukkitRunnable(){
-
-                public void run() {
                     User u;
                     if (!player.isOnline()) {
                         if (TemporaryStats.getFromPlayer(player) != null) {
@@ -319,17 +284,6 @@ extends PListener {
                     Repeater.runPlayerTask(player, counters, counters2);
                     if (TemporaryStats.getFromPlayer(player) != null) {
                         TemporaryStats.getFromPlayer(player).update();
-                    }
-                    if (player.getWorld().getName().contains("arena") && (u = User.getUser(player.getUniqueId())) != null) {
-                        if (u.hasPotionEffect(vn.giakhanhvn.skysim.features.potion.PotionEffectType.JUMP_BOOST) || u.hasPotionEffect(vn.giakhanhvn.skysim.features.potion.PotionEffectType.RABBIT)) {
-                            u.removePotionEffect(vn.giakhanhvn.skysim.features.potion.PotionEffectType.JUMP_BOOST);
-                            u.removePotionEffect(vn.giakhanhvn.skysim.features.potion.PotionEffectType.RABBIT);
-                            u.toBukkitPlayer().removePotionEffect(PotionEffectType.JUMP);
-                            u.send("&cYour Jump Boost potion effect has been taken away by an unknown magicial force!");
-                        }
-                        if (u.toBukkitPlayer().hasPotionEffect(PotionEffectType.JUMP)) {
-                            u.toBukkitPlayer().removePotionEffect(PotionEffectType.JUMP);
-                        }
                     }
                     counters[0] = counters[0] + 1;
                     counters[1] = counters[1] + 1;
@@ -588,16 +542,6 @@ extends PListener {
                 return;
             }
             Player damagedPlayer = (Player) damaged;
-            if (VoidlingsWardenHelmet.VOIDLING_SHIELD.containsKey(damagedPlayer.getUniqueId()) && User.getUser(damagedPlayer.getUniqueId()).isVoidlingWardenActive() && !(damager instanceof Player) && this.checkArrowSource(damager)) {
-                if (VoidlingsWardenHelmet.VOIDLING_SHIELD.get(damagedPlayer.getUniqueId()) - 1 > 0) {
-                    e.setDamage(0.0);
-                    e.setCancelled(true);
-                    damaged.getWorld().playSound(damaged.getLocation(), Sound.ENDERMAN_TELEPORT, 1.0f, 2.0f);
-                    VoidlingsWardenHelmet.VOIDLING_SHIELD.put(damagedPlayer.getUniqueId(), VoidlingsWardenHelmet.VOIDLING_SHIELD.get(damagedPlayer.getUniqueId()) - 1);
-                } else {
-                    User.getUser(damagedPlayer.getUniqueId()).setVoidlingWardenActive(false);
-                }
-            }
             if (!Sputnik.HaveDMGReduction.containsKey(damagedPlayer.getUniqueId())) {
                 Sputnik.HaveDMGReduction.put(damagedPlayer.getUniqueId(), false);
             }

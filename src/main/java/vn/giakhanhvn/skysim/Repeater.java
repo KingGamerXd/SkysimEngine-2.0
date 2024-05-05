@@ -78,7 +78,6 @@ import vn.giakhanhvn.skysim.features.item.SMaterial;
 import vn.giakhanhvn.skysim.features.item.SpecificItemType;
 import vn.giakhanhvn.skysim.features.item.armor.ArmorSet;
 import vn.giakhanhvn.skysim.features.item.armor.TickingSet;
-import vn.giakhanhvn.skysim.features.item.armor.VoidlingsWardenHelmet;
 import vn.giakhanhvn.skysim.features.item.bow.Terminator;
 import vn.giakhanhvn.skysim.features.potion.ActivePotionEffect;
 import vn.giakhanhvn.skysim.features.region.Region;
@@ -223,7 +222,7 @@ public class Repeater {
             public void run() {
                 SkyBlockCalendar.ELAPSED += 20L;
                 for (World w : Bukkit.getWorlds()) {
-                    if (!SadanHuman.BossRun.containsKey(w.getUID()) || !w.getName().contains("f6") || !SadanHuman.BossRun.containsKey(w.getUID()) || !SadanHuman.BossRun.get(w.getUID()).booleanValue()) continue;
+                    if (!SadanHuman.BossRun.containsKey(w.getUID()) || !w.getName().contains("f6") || !SadanHuman.BossRun.containsKey(w.getUID()) || !SadanHuman.BossRun.get(w.getUID())) continue;
                     FloorLivingSec.put(w.getUID(), FloorLivingSec.get(w.getUID()) + 1);
                 }
                 if (SkySimEngine.getPlugin().config.getBoolean("antiDupe.scanDuper")) {
@@ -290,11 +289,6 @@ public class Repeater {
             player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 100000, 1));
         } else {
             player.removePotionEffect(PotionEffectType.INVISIBILITY);
-        }
-        if (helm != null && (helm.getType() == SMaterial.HIDDEN_USSR_HELMET || helm.getType() == SMaterial.HIDDEN_DONATOR_HELMET || helm.getType() == SMaterial.HIDDEN_DT2_HELMET)) {
-            ItemStack SSRstack = helm.getStack();
-            SSRstack.setDurability((short)SUtil.random(0, 15));
-            player.getInventory().setHelmet(SSRstack);
         }
         PlayerUtils.updateP(player);
         if (Sputnik.itemCount(player, "SkySim Menu") > 1) {
@@ -400,9 +394,9 @@ public class Repeater {
         if (!MANA_MAP.containsKey(uuid)) {
             MANA_MAP.put(uuid, manaPool);
         }
-        if (counters[0] == 2 && (mana = MANA_MAP.get(uuid).intValue()) <= manaPool) {
+        if (counters[0] == 2 && (mana = MANA_MAP.get(uuid)) <= manaPool) {
             int reg = Math.min(manaPool, Math.min(manaPool, manaPool / 50 + (int)((double)(manaPool / 50) * statistics.getManaRegenerationPercentBonus())));
-            reg = MANA_REGEN_DEC.containsKey(uuid) ? (MANA_REGEN_DEC.get(uuid).booleanValue() ? mana + Math.round(reg / 10) : mana + reg) : mana + reg;
+            reg = MANA_REGEN_DEC.containsKey(uuid) ? (MANA_REGEN_DEC.get(uuid) ? mana + Math.round(reg / 10) : mana + reg) : mana + reg;
             MANA_MAP.remove(uuid);
             MANA_MAP.put(uuid, Math.min(manaPool, reg));
         }
@@ -415,7 +409,7 @@ public class Repeater {
         SputnikPlayer.updateScaledAHP(player);
         player.setWalkSpeed(Math.min((float)(statistics.getSpeed().addAll() / 5.0), 1.0f));
         int defense = SUtil.blackMagic(statistics.getDefense().addAll());
-        float absorption = SputnikPlayer.getCustomAbsorptionHP(player).intValue();
+        float absorption = SputnikPlayer.getCustomAbsorptionHP(player);
         ChatColor color = absorption > 0.0f ? ChatColor.GOLD : ChatColor.RED;
         DefenseReplacement replacement = DEFENSE_REPLACEMENT_MAP.get(player.getUniqueId());
         ManaReplacement replacement1 = MANA_REPLACEMENT_MAP.get(player.getUniqueId());
@@ -469,7 +463,7 @@ public class Repeater {
             ABTerminator = "";
         }
         if (!player.getWorld().getName().equalsIgnoreCase("limbo")) {
-            SUtil.sendActionBar(player, color + "" + Math.round(player.getHealth() + (double)absorption) + "/" + SUtil.blackMagic(statistics.getMaxHealth().addAll()) + "❤" + Repeater.get(player) + "     " + (replacement == null ? (defense != 0 ? "" + ChatColor.GREEN + defense + "❈ Defense" + ABTerminator + "     " : "") : replacement.getReplacement() + "     ") + (replacement1 == null ? (manaPool >= 0 ? "" + ChatColor.AQUA + MANA_MAP.get(player.getUniqueId()) + "/" + manaPool + "✎ Mana" : "") : replacement1.getReplacement()) + ZSActionBar);
+            SUtil.sendActionBar(player, color + "" + Math.round(player.getHealth() + (double)absorption) + "/" + SUtil.blackMagic(statistics.getMaxHealth().addAll()) + "❤" +  "     " + (replacement == null ? (defense != 0 ? "" + ChatColor.GREEN + defense + "❈ Defense" + ABTerminator + "     " : "") : replacement.getReplacement() + "     ") + (replacement1 == null ? (manaPool >= 0 ? "" + ChatColor.AQUA + MANA_MAP.get(player.getUniqueId()) + "/" + manaPool + "✎ Mana" : "") : replacement1.getReplacement()) + ZSActionBar);
         } else {
             SUtil.sendActionBar(player, color + "" + ChatColor.RED + ChatColor.BOLD + "YOU ARE CURRENTLY IN THE LIMBO SERVER, USE " + ChatColor.GOLD + ChatColor.BOLD + "/HUB " + ChatColor.RED + ChatColor.BOLD + "TO WARP OUT");
         }
@@ -480,7 +474,7 @@ public class Repeater {
         }
         String skysim = Sputnik.trans("&e&lSKYSIM");
         Boolean isNotCracked = Bukkit.getServer().getOnlineMode();
-        skysim = SBA_MAP.containsKey(uuid) ? (SBA_MAP.get(uuid).booleanValue() ? ChatColor.translateAlternateColorCodes('&', "&e&lSKYBLOCK") : (ChatColor.translateAlternateColorCodes('&', "&e&lSKYSIM &b&lBETA"))) : (ChatColor.translateAlternateColorCodes('&', "&e&lSKYSIM &b&lBETA"));
+        skysim = SBA_MAP.containsKey(uuid) ? (SBA_MAP.get(uuid) ? ChatColor.translateAlternateColorCodes('&', "&e&lSKYBLOCK") : (ChatColor.translateAlternateColorCodes('&', "&e&lSKYSIM &b&lBETA"))) : (ChatColor.translateAlternateColorCodes('&', "&e&lSKYSIM &b&lBETA"));
         Sidebar sidebar = new Sidebar(skysim, "SKYSIM");
         String strd = SUtil.getDate();
         if (RebootServerCommand.secondMap.containsKey(Bukkit.getServer())) {
@@ -604,7 +598,7 @@ public class Repeater {
         }
 
         if (SBA_MAP.containsKey(uuid)) {
-            if (SBA_MAP.get(uuid).booleanValue()) {
+            if (SBA_MAP.get(uuid)) {
                 sidebar.add(ChatColor.YELLOW + "www.hypixel.net");
             } else {
                 sidebar.add(ChatColor.YELLOW + "mc.skysim.sbs");
@@ -630,11 +624,5 @@ public class Repeater {
         }
     }
 
-    public static String get(Player p) {
-        if (VoidlingsWardenHelmet.getDisplay(p) != "") {
-            return " " + VoidlingsWardenHelmet.getDisplay(p);
-        }
-        return "";
-    }
 }
 

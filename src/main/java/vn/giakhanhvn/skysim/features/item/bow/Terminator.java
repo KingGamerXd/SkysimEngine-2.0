@@ -262,8 +262,6 @@ Ability {
                     if (helmet != null) {
                         if (helmet.getType() == SMaterial.WARDEN_HELMET) {
                             enchantBonus += (100.0 + 20.0 * realSpeedDIVC) / 100.0;
-                        } else if (helmet.getType() == SMaterial.HIDDEN_VOIDLINGS_WARDEN_HELMET) {
-                            enchantBonus += (100.0 + 30.0 * realSpeedDIVC) / 100.0;
                         }
                     }
                     for (Enchantment enchantment : sItem.getEnchantments()) {

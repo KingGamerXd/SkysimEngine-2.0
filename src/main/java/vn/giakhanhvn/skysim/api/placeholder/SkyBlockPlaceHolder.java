@@ -125,9 +125,6 @@ extends PlaceholderExpansion {
             if (identifier.equals("potion")) {
                 return this.getEffectLoop(player);
             }
-            if (identifier.equals("hitshield")) {
-                return Repeater.get(player.getPlayer());
-            }
             if (identifier.equals("cookie")) {
                 return PlayerUtils.getCookieDurationDisplay(player.getPlayer());
             }

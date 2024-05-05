@@ -76,9 +76,6 @@ import vn.giakhanhvn.skysim.features.item.SMaterial;
 import vn.giakhanhvn.skysim.features.item.TickingMaterial;
 import vn.giakhanhvn.skysim.features.item.accessory.AccessoryFunction;
 import vn.giakhanhvn.skysim.features.item.armor.ArmorSet;
-import vn.giakhanhvn.skysim.features.item.armor.VoidlingsWardenHelmet;
-import vn.giakhanhvn.skysim.features.item.armor.gigachad.GigachadSet;
-import vn.giakhanhvn.skysim.features.item.armor.minichad.MinichadSet;
 import vn.giakhanhvn.skysim.features.item.pet.Pet;
 import vn.giakhanhvn.skysim.features.item.weapon.EdibleMace;
 import vn.giakhanhvn.skysim.listener.PlayerListener;
@@ -309,7 +306,7 @@ public final class PlayerUtils {
                 atkSpeed.add(slot, is.getAtkSpeed());
                 ferocity.add(slot, is.getFerocity());
             }
-            if (piece.getType() == SMaterial.WARDEN_HELMET || piece.getType() == SMaterial.HIDDEN_VOIDLINGS_WARDEN_HELMET) {
+            if (piece.getType() == SMaterial.WARDEN_HELMET) {
                 speed.sub(slot, statistics.getSpeed().addAll() / 2.0);
             }
             if ((tickingMaterial = piece.getType().getTickingInstance()) != null) {
@@ -447,51 +444,6 @@ public final class PlayerUtils {
                     magicFind.set(5, boost.getBaseMagicFind());
                     ferocity.set(5, boost.getBaseFerocity());
                     atkSpeed.set(5, boost.getBaseAttackSpeed());
-                }
-                if (set instanceof GigachadSet) {
-                    double defense1 = statistics.getDefense().addAll();
-                    double strength1 = statistics.getStrength().addAll();
-                    double intelligence1 = statistics.getIntelligence().addAll();
-                    double speed1 = statistics.getSpeed().addAll();
-                    double critChance1 = statistics.getCritChance().addAll();
-                    double critDamage1 = statistics.getCritDamage().addAll();
-                    double magicFind1 = statistics.getMagicFind().addAll();
-                    double trueDefense1 = statistics.getTrueDefense().addAll();
-                    double ferocity1 = statistics.getFerocity().addAll() - statistics.getFerocity().getFor(153);
-                    double atkSpeed1 = statistics.getAttackSpeed().addAll();
-                    double LevelMul = 20.0;
-                    defense.add(5, defense1 * LevelMul / 100.0);
-                    strength.add(5, strength1 * LevelMul / 100.0);
-                    intelligence.add(5, intelligence1 * LevelMul / 100.0);
-                    speed.add(5, speed1 * LevelMul / 100.0);
-                    critChance.add(5, critChance1 * LevelMul / 100.0);
-                    critDamage.add(5, critDamage1 * LevelMul / 100.0);
-                    magicFind.add(5, magicFind1 * LevelMul / 100.0);
-                    trueDefense.add(5, trueDefense1 * LevelMul / 100.0);
-                    ferocity.add(5, ferocity1 * LevelMul / 100.0);
-                    atkSpeed.add(5, atkSpeed1 * LevelMul / 100.0);
-                } else if (set instanceof MinichadSet) {
-                    double defense1 = statistics.getDefense().addAll();
-                    double strength1 = statistics.getStrength().addAll();
-                    double intelligence1 = statistics.getIntelligence().addAll();
-                    double speed1 = statistics.getSpeed().addAll();
-                    double critChance1 = statistics.getCritChance().addAll();
-                    double critDamage1 = statistics.getCritDamage().addAll();
-                    double magicFind1 = statistics.getMagicFind().addAll();
-                    double trueDefense1 = statistics.getTrueDefense().addAll();
-                    double ferocity1 = statistics.getFerocity().addAll() - statistics.getFerocity().getFor(153);
-                    double atkSpeed1 = statistics.getAttackSpeed().addAll();
-                    double LevelMul = 10.0;
-                    defense.add(5, defense1 * LevelMul / 100.0);
-                    strength.add(5, strength1 * LevelMul / 100.0);
-                    intelligence.add(5, intelligence1 * LevelMul / 100.0);
-                    speed.add(5, speed1 * LevelMul / 100.0);
-                    critChance.add(5, critChance1 * LevelMul / 100.0);
-                    critDamage.add(5, critDamage1 * LevelMul / 100.0);
-                    magicFind.add(5, magicFind1 * LevelMul / 100.0);
-                    trueDefense.add(5, trueDefense1 * LevelMul / 100.0);
-                    ferocity.add(5, ferocity1 * LevelMul / 100.0);
-                    atkSpeed.add(5, atkSpeed1 * LevelMul / 100.0);
                 }
             }
         } else {
@@ -748,8 +700,6 @@ public final class PlayerUtils {
             if (helmet != null) {
                 if (helmet.getType() == SMaterial.WARDEN_HELMET) {
                     damage = (int)((double)damage + 20.0 * realSpeedDIVC / 100.0 * (double)damage);
-                } else if (helmet.getType() == SMaterial.HIDDEN_VOIDLINGS_WARDEN_HELMET) {
-                    damage = (int)((double)damage + 35.0 * realSpeedDIVC / 100.0 * (double)damage);
                 }
             }
             damage = (int)((double)damage + bonusEn);
@@ -900,7 +850,7 @@ public final class PlayerUtils {
         }
         double FinalDMG = finalDamage;
         double finalPot = finalPotionBonus;
-        double fds = (FinalDMG + FinalDMG * finalPot) * (VoidlingsWardenHelmet.VOIDLING_WARDEN_BUFF.containsKey(user.getUuid()) ? 1.5 : 1.0);
+        double fds = (FinalDMG + FinalDMG * finalPot);
         if (active1 != null && pet.getDisplayName().equals("Archivy") && arrowHit) {
             Pet.PetItem active = user.getActivePet();
             int level = Pet.getLevel(active.getXp(), active.getRarity());
@@ -1202,7 +1152,7 @@ public final class PlayerUtils {
                         Random rnd = new Random();
                         int n = rnd.nextInt(100);
                     }
-                    if (sEntity.getEntity().getType() == EntityType.ENDERMAN && SUtil.random(1, 40) == 1 && sEntity.getStatistics().mobLevel() >= 90 && SlayerBossType.SlayerMobType.ENDERMAN.getLevelForXP(User.getUser(damager.getUniqueId()).getEndermanSlayerXP()) >= 6 && User.getUser(damager.getUniqueId()).getActivePet() != null && User.getUser(damager.getUniqueId()).getActivePet().getType() == SMaterial.HIDDEN_VOIDLINGS_PET) {
+                    if (sEntity.getEntity().getType() == EntityType.ENDERMAN && SUtil.random(1, 40) == 1 && sEntity.getStatistics().mobLevel() >= 90 && SlayerBossType.SlayerMobType.ENDERMAN.getLevelForXP(User.getUser(damager.getUniqueId()).getEndermanSlayerXP()) >= 6 && User.getUser(damager.getUniqueId()).getActivePet() != null) {
                         PacketInvoker.dropVoidSpawner(damager, sEntity.getEntity().getLocation());
                     }
                     if ((sitem = SItem.find(damager.getItemInHand())) != null) {

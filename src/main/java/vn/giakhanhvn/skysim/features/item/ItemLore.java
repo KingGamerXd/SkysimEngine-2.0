@@ -131,7 +131,7 @@ public class ItemLore {
                 lore.add("");
             }
         }
-        if (enchantments != null && enchantments.size() != 0) {
+        if (enchantments != null && !enchantments.isEmpty()) {
             ArrayList<Enchantment> filteredList_ultimate;
             int amount = enchantments.size();
             List<String> stringEnchantments = new ArrayList<String>();
@@ -209,7 +209,7 @@ public class ItemLore {
             lore.add(Sputnik.trans("&7Shoots &b3 &7arrows at once."));
             lore.add(ChatColor.GRAY + "Can damage Endermen.");
             lore.add("");
-            lore.add(Sputnik.trans("&cDivides your &9\u2623 Crit Chance &cby 4!"));
+            lore.add(Sputnik.trans("&cDivides your &9☣ Crit Chance &cby 4!"));
             lore.add("");
         }
         if ((ability = material.getAbility()) != null) {
@@ -235,21 +235,21 @@ public class ItemLore {
             }
             if (this.parent.getType() == SMaterial.HIDDEN_BOOSTER_COOKIE) {
                 lore.add(" ");
-                lore.add(Sputnik.trans("&8\u25b6 &b+35% &7Bonus Combat XP"));
-                lore.add(Sputnik.trans("&8\u25b6 &b+30\u272f &7Bonus Magic Find"));
-                lore.add(Sputnik.trans("&8\u25b6 &c+100\u2741 &7Bonus Strength"));
-                lore.add(Sputnik.trans("&8\u25b6 &a+200\u2748 &7Bonus Defense"));
-                lore.add(Sputnik.trans("&8\u25b6 &9+25\u2620 &7Bonus Crit Damage"));
-                lore.add(Sputnik.trans("&8\u25b6 &c+35\u2afd &7Bonus Ferocity"));
-                lore.add(Sputnik.trans("&8\u25b6 &b+2000\u270e &7Bonus Intelligence"));
-                lore.add(Sputnik.trans("&8\u25b6 &7Keep &6coins &7and &deffects &7on death"));
-                lore.add(Sputnik.trans("&8\u25b6 &7Access to &6/auh &7and &6/fm"));
-                lore.add(Sputnik.trans("&8\u25b6 &7Access to &6/av &7and &6/bin &7(Trash Bin)"));
-                lore.add(Sputnik.trans("&8\u25b6 &7A shiny &e\u272a &6Badge &7on your &aname tag."));
+                lore.add(Sputnik.trans("&8▶ &b+35% &7Bonus Combat XP"));
+                lore.add(Sputnik.trans("&8▶ &b+30✯ &7Bonus Magic Find"));
+                lore.add(Sputnik.trans("&8▶ &c+100❁ &7Bonus Strength"));
+                lore.add(Sputnik.trans("&8▶ &a+200❈ &7Bonus Defense"));
+                lore.add(Sputnik.trans("&8▶ &9+25☠ &7Bonus Crit Damage"));
+                lore.add(Sputnik.trans("&8▶ &c+35⫽ &7Bonus Ferocity"));
+                lore.add(Sputnik.trans("&8▶ &b+2000✎ &7Bonus Intelligence"));
+                lore.add(Sputnik.trans("&8▶ &7Keep &6coins &7and &deffects &7on death"));
+                lore.add(Sputnik.trans("&8▶ &7Access to &6/auh &7and &6/fm"));
+                lore.add(Sputnik.trans("&8▶ &7Access to &6/av &7and &6/bin &7(Trash Bin)"));
+                lore.add(Sputnik.trans("&8▶ &7A shiny &e✪ &6Badge &7on your &aname tag."));
             }
             if (this.parent.getType() == SMaterial.WEIRD_TUBA) {
-                lore.add(Sputnik.trans("&c+30\u2741 Strength"));
-                lore.add(Sputnik.trans("&f+30\u2726 Speed"));
+                lore.add(Sputnik.trans("&c+30❁ Strength"));
+                lore.add(Sputnik.trans("&f+30✦ Speed"));
                 lore.add(Sputnik.trans("&7for &a20 &7seconds."));
                 lore.add(ChatColor.DARK_GRAY + "Buff doesn't stack.");
             }
@@ -259,10 +259,6 @@ public class ItemLore {
             }
             if (this.parent.getType() == SMaterial.HIDDEN_GYROKINETIC_WAND) {
                 lore.add(ChatColor.DARK_GRAY + "Regen mana 10x slower for 3s after cast.");
-            }
-            if (this.parent.getType() == SMaterial.HIDDEN_VOIDLINGS_WARDEN_HELMET) {
-                lore.add(ChatColor.DARK_GRAY + "Mana Cost: " + ChatColor.DARK_AQUA + "All");
-                lore.add(ChatColor.DARK_GRAY + "Cooldown: " + ChatColor.GREEN + "30s");
             }
             if (this.parent.getType() == SMaterial.ZOMBIE_SWORD_T2) {
                 lore.add(ChatColor.DARK_GRAY + "Mana Cost: " + ChatColor.DARK_AQUA + "70");
@@ -282,9 +278,6 @@ public class ItemLore {
             }
             if (this.parent.getType() == SMaterial.AXE_OF_THE_SHREDDED) {
                 lore.add(ChatColor.DARK_GRAY + "Mana Cost: " + ChatColor.DARK_AQUA + "20");
-            }
-            if (this.parent.getType() == SMaterial.HIDDEN_DIMOONIZARY_DAGGER) {
-                lore.add(ChatColor.DARK_GRAY + "Mana Cost: " + ChatColor.DARK_AQUA + "160");
             }
             if (ability.getManaCost() > 0) {
                 lore.add(ChatColor.DARK_GRAY + "Mana Cost: " + ChatColor.DARK_AQUA + ability.getManaCost());
@@ -326,43 +319,26 @@ public class ItemLore {
         if (this.parent.getType() == SMaterial.MIDAS_STAFF) {
             lore.add(Sputnik.trans("&6Ability: Greed"));
         }
-        if (this.parent.getType() == SMaterial.ENCHANTED_BOOK && this.parent.getEnchantments() != null && Enchantment.ultimateEnchantsListFromList(this.parent.getEnchantments()).size() > 0) {
+        if (this.parent.getType() == SMaterial.ENCHANTED_BOOK && this.parent.getEnchantments() != null && !Enchantment.ultimateEnchantsListFromList(this.parent.getEnchantments()).isEmpty()) {
             lore.add(Sputnik.trans("&cYou can only have 1 Ultimate"));
             lore.add(Sputnik.trans("&cEnchantment on an item!"));
             lore.add(" ");
         }
         String l = this.parent.getType().getStatistics().getLore();
-        if (this.parent.getType() == SMaterial.HIDDEN_VOIDLINGS_WARDEN_HELMET) {
-            lore.add(Sputnik.trans("&6Ability: Extra Brute Force"));
-        }
         if (l != null) {
             for (String string : SUtil.splitByWordAndLength(l, 30, "\\s")) {
                 lore.add(ChatColor.GRAY + string);
             }
-            if (l.length() != 0) {
+            if (!l.isEmpty()) {
                 lore.add("");
             }
         }
-        if (this.parent.getType() == SMaterial.HIDDEN_DONATOR_HELMET && Bukkit.getPlayer((String)(p = this.parent.getDataString("p_given"))) != null) {
-            lore.add(Sputnik.trans("&7From: ") + Bukkit.getPlayer((String)p).getDisplayName());
-        }
-        if (this.parent.getType() == SMaterial.HIDDEN_DONATOR_HELMET && Bukkit.getPlayer((String)(p = this.parent.getDataString("p_rcv"))) != null) {
-            lore.add(Sputnik.trans("&7To: ") + Bukkit.getPlayer((String)p).getDisplayName());
-        }
-        if (this.parent.getType() == SMaterial.HIDDEN_DONATOR_HELMET && (a = this.parent.getDataString("lore_d").replaceAll("<>", " ")) != null && a != "null") {
-            lore.add("");
-            for (String string : SUtil.splitByWordAndLength(a, 25, "\\s")) {
-                lore.add(Sputnik.trans("&7" + string));
-            }
-            if (l.length() != 0) {
-                lore.add("");
-            }
-        }
+
         if ((ll = this.parent.getType().getStatistics().getListLore()) != null) {
             for (String string : ll) {
                 lore.add(ChatColor.GRAY + string);
             }
-            if (ll.size() != 0) {
+            if (!ll.isEmpty()) {
                 lore.add("");
             }
         }
@@ -392,13 +368,13 @@ public class ItemLore {
         }
         if (this.user != null) {
             if (this.user.getBCollection() < 100L && this.parent.getType() == SMaterial.GOLDEN_TROPHY_SADAN) {
-                lore.add(Sputnik.trans("&c\u2763 &aRequires &6100 Sadan Kills"));
+                lore.add(Sputnik.trans("&c❣ &aRequires &6100 Sadan Kills"));
             } else if (this.user.getBCollection() < 1000L && this.parent.getType() == SMaterial.DIAMOND_TROPHY_SADAN) {
-                lore.add(Sputnik.trans("&c\u2763 &aRequires &61,000 Sadan Kills"));
+                lore.add(Sputnik.trans("&c❣ &aRequires &61,000 Sadan Kills"));
             } else if (SlayerBossType.SlayerMobType.ENDERMAN.getLevelForXP(this.user.getEndermanSlayerXP()) < 6 && this.parent.getType() == SMaterial.HIDDEN_GYROKINETIC_WAND) {
-                lore.add(Sputnik.trans("&4\u2620 &cRequires &5Enderman Slayer 6."));
+                lore.add(Sputnik.trans("&4☠ &cRequires &5Enderman Slayer 6."));
             } else if (this.user.getBCollection() < 25L && this.parent.getType() == SMaterial.HIDDEN_SOUL_WHIP) {
-                lore.add(Sputnik.trans("&c\u2763 &aRequires &625 Sadan Kills"));
+                lore.add(Sputnik.trans("&c❣ &aRequires &625 Sadan Kills"));
             }
         }
         SpecificItemType type = statistics.getSpecificType();

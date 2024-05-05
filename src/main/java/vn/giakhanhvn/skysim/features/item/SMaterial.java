@@ -5,14 +5,12 @@ import org.bukkit.inventory.PlayerInventory;
 import vn.giakhanhvn.skysim.features.entity.SEntityType;
 import vn.giakhanhvn.skysim.features.item.accessory.*;
 import vn.giakhanhvn.skysim.features.item.armor.*;
-import vn.giakhanhvn.skysim.features.item.armor.gigachad.*;
 import vn.giakhanhvn.skysim.features.item.armor.hardened.HardenedDiamondBoots;
 import vn.giakhanhvn.skysim.features.item.armor.hardened.HardenedDiamondChestplate;
 import vn.giakhanhvn.skysim.features.item.armor.hardened.HardenedDiamondHelmet;
 import vn.giakhanhvn.skysim.features.item.armor.hardened.HardenedDiamondLeggings;
 import vn.giakhanhvn.skysim.features.item.armor.lapis.*;
 import vn.giakhanhvn.skysim.features.item.armor.miner.*;
-import vn.giakhanhvn.skysim.features.item.armor.minichad.*;
 import vn.giakhanhvn.skysim.features.item.armor.necron.*;
 import vn.giakhanhvn.skysim.features.item.armor.sorrow.*;
 import vn.giakhanhvn.skysim.features.item.armor.storm.*;
@@ -79,27 +77,17 @@ public enum SMaterial {
     HIDDEN_ETHERWARP_CONDUIT(Material.SKULL_ITEM, EtherwarpConduit.class),
     HIDDEN_ETHERWARP_MERGER(Material.SKULL_ITEM, EtherwarpMerger.class),
     HIDDEN_ETHERWARP_TRANSCODER(Material.SKULL_ITEM, EtherwarpTranscoder.class),
-    HIDDEN_USSR_HELMET(Material.STAINED_GLASS, BlyatHelmet.class, (short) 14),
-    HIDDEN_DONATOR_HELMET(Material.STAINED_GLASS, USSRHelmet.class, (short) 14),
-    HIDDEN_DT2_HELMET(Material.STAINED_GLASS, renegade450Helmet.class, (short) 14),
     HIDDEN_GYROKINETIC_WAND(Material.BLAZE_ROD, GyrokineticWand.class),
     HIDDEN_GOLDEN_TIGER_2022(Material.SKULL_ITEM, GoldenTigerPet.class),
-    HIDDEN_CHIMMY_PET(Material.SKULL_ITEM, ChimmyPet.class),
-    HIDDEN_ARCHIVY(Material.SKULL_ITEM, ArchivyPet.class),
-    HIDDEN_ARAGORN_PET(Material.SKULL_ITEM, AragornPet.class),
-    HIDDEN_KP56_PET(Material.SKULL_ITEM, KP56Pet.class),
     HIDDEN_MAGICIVY(Material.SKULL_ITEM, MagicivyPet.class),
     HIDDEN_USSR_T34_TANK_PET(Material.SKULL_ITEM, TankPet.class),
     HIDDEN_REFINED_POWDER(Material.SULPHUR, RefinedPowder.class),
     HIDDEN_COMPRESSED_BITS(Material.DIAMOND, CompressedBits.class),
     HIDDEN_GYRO_EYE(Material.EYE_OF_ENDER, GyrokineticEye.class),
     HIDDEN_SOUL_WHIP(Material.FISHING_ROD, SoulWhip.class),
-    HIDDEN_VOIDLINGS_WARDEN_HELMET(Material.SKULL_ITEM, VoidlingsWardenHelmet.class),
     HIDDEN_VOID_FRAGMENT(Material.EYE_OF_ENDER, VoidFragment.class),
     HIDDEN_DEMONS_PEARL(Material.SKULL_ITEM, DemonsPearl.class),
     HIDDEN_COMPRESSED_VOID_FRAG(Material.SKULL_ITEM, CompressedVoidFrag.class),
-    HIDDEN_VOIDLINGS_PET(Material.SKULL_ITEM, VoidlingsPet.class),
-    HIDDEN_DIMOONIZARY_DAGGER(Material.DIAMOND_SWORD, DimoonizaryDagger.class),
     HIDDEN_DIMOON_GEM(Material.SKULL_ITEM, DimoonCatalyst.class),
     HIDDEN_DIMOON_FRAG(Material.SKULL_ITEM, DimoonFragment.class),
     DAGGER(Material.IRON_SWORD, Dagger.class),
@@ -131,14 +119,6 @@ public enum SMaterial {
     ZOMBIE_SWORD_T3(Material.GOLD_SWORD, FloridZombieSword.class),
     PRISMARINE_BLADE(Material.PRISMARINE_SHARD, PrismarineBlade.class),
     HIDDEN_EXCRARION(Material.GOLD_SWORD, Excrarion.class),
-    HIDDEN_GIGACHAD_HELMET(Material.SKULL_ITEM, GigachadHelmet.class),
-    HIDDEN_GIGACHAD_CHESTPLATE(Material.LEATHER_CHESTPLATE, GigachadChestplate.class),
-    HIDDEN_GIGACHAD_LEGGINGS(Material.LEATHER_LEGGINGS, GigachadLeggings.class),
-    HIDDEN_GIGACHAD_BOOTS(Material.LEATHER_BOOTS, GigachadBoots.class),
-    HIDDEN_MINICHAD_HELMET(Material.SKULL_ITEM, MinichadHelmet.class),
-    HIDDEN_MINICHAD_CHESTPLATE(Material.LEATHER_CHESTPLATE, MinichadChestplate.class),
-    HIDDEN_MINICHAD_LEGGINGS(Material.LEATHER_LEGGINGS, MinichadLeggings.class),
-    HIDDEN_MINICHAD_BOOTS(Material.LEATHER_BOOTS, MinichadBoots.class),
     HIDDEN_SHARD_DIAMOND(Material.SKULL_ITEM, ShardoftheDiamondOrb.class),
     HIDDEN_REVANTUS_SWORD(Material.IRON_SWORD, RevantusSword.class),
     WARDEN_HELMET(Material.SKULL_ITEM, WardenHelmet.class),
@@ -250,7 +230,6 @@ public enum SMaterial {
     BROKEN_PIGGY_BANK(Material.SKULL_ITEM, BrokenPiggyBank.class),
     TARANTULA_TALISMAN(Material.SKULL_ITEM, TarantulaTalisman.class),
     FARMING_TALISMAN(Material.SKULL_ITEM, FarmingTalisman.class),
-    EXTERMINATOR(Material.IRON_SWORD, Exterminator.class),
     ENCHANTED_BONE(Material.BONE, EnchantedBone.class),
     ENCHANTED_OBSIDIAN(Material.OBSIDIAN, EnchantedObsidian.class),
     ENCHANTED_ENDER_PEARL(Material.ENDER_PEARL, EnchantedEnderPearl.class),
@@ -941,8 +920,6 @@ public enum SMaterial {
     public static NecronFullSet NECRONS_SET;
     public static StormFullSet STORMS_SET;
     public static SorrowArmorSet SORROW_SET;
-    public static GigachadSet GIGACHAD_SET;
-    public static MinichadSet MINICHAD_SET;
     private final Material craftMaterial;
     private final short data;
     private final Class<?> clazz;
@@ -1202,8 +1179,6 @@ public enum SMaterial {
         SMaterial.NECRONS_SET = SMaterial.registerArmorSet(NecronFullSet.class);
         SMaterial.STORMS_SET = SMaterial.registerArmorSet(StormFullSet.class);
         SMaterial.SORROW_SET = SMaterial.registerArmorSet(SorrowArmorSet.class);
-        SMaterial.GIGACHAD_SET = SMaterial.registerArmorSet(GigachadSet.class);
-        SMaterial.MINICHAD_SET = SMaterial.registerArmorSet(MinichadSet.class);
     }
 
     public enum VagueEntityMaterial {
