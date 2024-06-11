@@ -7,7 +7,7 @@
  */
 package vn.giakhanhvn.skysim.nms.nmsutil.reflection.minecraft;
 
-import java.lang.reflect.Constructor;
+import vn.giakhanhvn.skysim.util.ConstructorAccessor
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.regex.Matcher;
