@@ -5,7 +5,7 @@
  *  net.md_5.bungee.api.ChatColor
  *  org.bukkit.entity.Player
  */
-package vn.giakhanhvn.skysim.item.armor;
+package vn.giakhanhvn.skysim.features.item.armor;
 
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.entity.Player;
