@@ -5,19 +5,14 @@
  *  net.md_5.bungee.api.ChatColor
  *  org.bukkit.entity.Player
  */
-package vn.giakhanhvn.skysim.features.item.armor;
+package vn.giakhanhvn.skysim.item.armor;
 
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.entity.Player;
-import vn.giakhanhvn.skysim.features.item.Ability;
-import vn.giakhanhvn.skysim.features.item.AbilityActivation;
-import vn.giakhanhvn.skysim.features.item.GenericItemType;
-import vn.giakhanhvn.skysim.features.item.MaterialFunction;
-import vn.giakhanhvn.skysim.features.item.Rarity;
-import vn.giakhanhvn.skysim.features.item.SItem;
-import vn.giakhanhvn.skysim.features.item.SkullStatistics;
-import vn.giakhanhvn.skysim.features.item.SpecificItemType;
-import vn.giakhanhvn.skysim.features.item.ToolStatistics;
+import vn.giakhanhvn.skysim.item.*;
+import vn.giakhanhvn.skysim.slayer.SlayerBossType;
+import vn.giakhanhvn.skysim.user.PlayerUtils;
+import vn.giakhanhvn.skysim.user.User;
 
 public class WardenHelmet
 implements MaterialFunction,
@@ -83,9 +78,33 @@ Ability {
     public AbilityActivation getAbilityActivation() {
         return AbilityActivation.NO_ACTIVATION;
     }
-
+    
     @Override
     public void onAbilityUse(Player player, SItem sItem) {
+        PlayerUtils.boostPlayer(PlayerUtils.STATISTICS_CACHE.get(player.getUniqueId()), new PlayerBoostStatistics(){
+            @Override
+            public String getDisplayName() {
+                return null;
+            }
+
+            @Override
+            public Rarity getRarity() {
+                return null;
+            }
+
+            @Override
+            public GenericItemType getType() {
+                return null;
+            }
+
+            @Override
+            public double getBaseStrength() {
+                double speed = getBaseSpeed();
+                int sm = (int) (speed / 25);
+                double sb = sm * 0.2;
+                return 1.0 + sb;
+            }
+        }, 0L);
     }
 
     @Override
