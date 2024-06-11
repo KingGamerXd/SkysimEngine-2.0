@@ -9,7 +9,7 @@ package vn.giakhanhvn.skysim.features.item.armor;
 
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.entity.Player;
-import vn.giakhanhvn.skysim.item.*;
+import vn.giakhanhvn.skysim.features.item.*;
 import vn.giakhanhvn.skysim.slayer.SlayerBossType;
 import vn.giakhanhvn.skysim.user.PlayerUtils;
 import vn.giakhanhvn.skysim.user.User;
