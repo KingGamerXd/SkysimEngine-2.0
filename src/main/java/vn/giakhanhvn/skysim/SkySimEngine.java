@@ -411,6 +411,7 @@ public class SkySimEngine
         this.cl.register(new APICommand());
         this.cl.register(new PickupStashCommand());
         this.cl.register(new StackMyDimoon());
+        this.cl.register(new AdminItemBrowserCommand());
     }
 
     private void initDummyWorld(){
