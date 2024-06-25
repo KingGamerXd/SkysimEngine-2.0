@@ -376,33 +376,6 @@ public class Sputnik {
         }
     }
 
-    public static void entityBeam(final ArmorStand stand, Location location1, final Player p, final Entity e) {
-        final Beam beam = new Beam(stand.getLocation().clone().add(stand.getLocation().getDirection().normalize().multiply(20)), stand.getLocation().clone().add(stand.getLocation().getDirection().normalize().multiply(-20)));
-        stand.setGravity(false);
-        beam.start();
-        new BukkitRunnable(){
-
-            public void run() {
-                if (stand.isDead()) {
-                    if (beam.isActive()) {
-                        beam.stop();
-                    }
-                    this.cancel();
-                    return;
-                }
-                Location location = stand.getLocation();
-                location.setYaw(stand.getLocation().getYaw() + 2.25f);
-                stand.teleport(location);
-                Sputnik.getEntity(stand.getLocation().add(stand.getLocation().getDirection().multiply(20)), stand.getLocation().add(stand.getLocation().getDirection().multiply(-20)), p, e);
-                beam.setEndingPosition(stand.getLocation().add(stand.getLocation().getDirection().multiply(0 - Sputnik.findArgo(p.getLocation(), stand.getLocation()))));
-                beam.setStartingPosition(stand.getLocation().add(stand.getLocation().getDirection().normalize().multiply(Sputnik.findArgo(p.getLocation(), stand.getLocation()))));
-                if (!beam.isActive() && !stand.isDead()) {
-                    beam.update();
-                }
-            }
-        }.runTaskTimer((Plugin)SkySimEngine.getPlugin(), 0L, 1L);
-    }
-
     public static int findArgo(Location arg0, Location arg1) {
         double dist = arg0.distance(arg1);
         if (dist < 5.0) {
