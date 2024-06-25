@@ -437,12 +437,12 @@ public class VoidgloomSeraph extends EntityEnderman implements SNMSEntity, Entit
                                 Sputnik.RemoveEntityArray(VoidgloomSeraph.this.Ar2);
                                 this.cancel();
                             } else {
-                                Sputnik.entityBeam(stand, stand.getLocation(), player, entity);
-                                Sputnik.entityBeam(stand22, stand.getLocation(), player, entity);
-                                Sputnik.entityBeam(stand11, stand.getLocation(), player, entity);
-                                Sputnik.entityBeam(stand1_, stand.getLocation(), player, entity);
-                                Sputnik.entityBeam(stand2, stand.getLocation(), player, entity);
-                                Sputnik.entityBeam(stand1, stand.getLocation(), player, entity);
+                                BeamAPI.entityBeam(stand, stand.getLocation(), player, entity);
+                                BeamAPI.entityBeam(stand22, stand.getLocation(), player, entity);
+                                BeamAPI.entityBeam(stand11, stand.getLocation(), player, entity);
+                                BeamAPI.entityBeam(stand1_, stand.getLocation(), player, entity);
+                                BeamAPI.entityBeam(stand2, stand.getLocation(), player, entity);
+                                BeamAPI.entityBeam(stand1, stand.getLocation(), player, entity);
                                 (new BukkitRunnable() {
                                     public void run() {
                                         if (stand22.isDead()) {
