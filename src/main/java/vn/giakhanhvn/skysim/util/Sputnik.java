@@ -409,12 +409,14 @@ public class Sputnik {
     public static void getEntity(Location finaldestination, Location ended, Player player, Entity e) {
         Location blockLocation = finaldestination;
         Location crystalLocation = ended;
+        final User user = User.getUser(player.getUniqueId());
         org.bukkit.util.Vector vector = blockLocation.clone().add(0.1, 0.0, 0.1).toVector().subtract(crystalLocation.clone().toVector());
         double count = 25.0;
         for (int i = 1; i <= (int)count; ++i) {
             for (Entity entity : ended.getWorld().getNearbyEntities(crystalLocation.clone().add(vector.clone().multiply((double)i / count)), 0.2, 0.0, 0.2)) {
                 if (entity != player) continue;
                 IsInsideTheBeam.put(player.getUniqueId(), true);
+                user.damage(25);
                 return;
             }
         }
