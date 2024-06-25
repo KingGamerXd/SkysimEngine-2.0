@@ -44,6 +44,7 @@ import vn.giakhanhvn.skysim.util.SUtil;
 public enum GUIType {
     CRAFTING_TABLE(CraftingTableGUI.class),
     ITEM_BROWSE(ItemBrowserGUI.class),
+    ADMIN_ITEM_BROWSER(AdminItemGUI.class),
     ANVIL(AnvilGUI.class),
     TRASH(TrashGUI.class),
     COOKIE_GUI(CookieGUI.class),
